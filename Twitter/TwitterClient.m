@@ -8,14 +8,20 @@
 
 #import "TwitterClient.h"
 #import "User.h"
+NSString * const consumerKey = @"geqayCv0xeIIBmRmr6DcIpWt1";
+NSString * const consumerSecret = @"SCoHYUvLwW1ugOGw4s5bDMh1fBs3vRreH9ad1uscMBCG7oGPlq";
+NSString * const baseUrl = @"https://api.twitter.com";
 
 @implementation TwitterClient
 static TwitterClient *sharedInstance = nil;
 
 + (TwitterClient *)sharedInstance {
-    if (sharedInstance == nil) {
-        sharedInstance = [[super alloc] initWithBaseURL:[NSURL URLWithString: @"https://api.twitter.com"] consumerKey:@"geqayCv0xeIIBmRmr6DcIpWt1" consumerSecret:@"SCoHYUvLwW1ugOGw4s5bDMh1fBs3vRreH9ad1uscMBCG7oGPlq"];
-    }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (sharedInstance == nil) {
+            sharedInstance = [[super alloc] initWithBaseURL:[NSURL URLWithString: baseUrl ] consumerKey: @"geqayCv0xeIIBmRmr6DcIpWt1" consumerSecret: consumerSecret];
+        }
+    });
     return sharedInstance;
 }
 

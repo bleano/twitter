@@ -8,11 +8,28 @@
 
 #import "TweetTableViewCell.h"
 
+@interface TweetTableViewCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *handleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeStampLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIButton *replyButton;
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+
+@end
+
 @implementation TweetTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.nameLabel.text = @"KCSorrelli";
+    self.handleLabel.text = @"handleLabel";
+    self.timeStampLabel.text = @"4h";
+    self.contentLabel.text = @"VP of Ops w/Multi Platform Ad Company, addicted to Diet Coke & Peanut Butter (really), Excel Nerd, Mother, Wife, Support System & Cheerleader to all who know me";
+    self.timeStampLabel.text = @"timeStampLabel";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

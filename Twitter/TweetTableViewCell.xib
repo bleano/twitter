@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="563" height="434"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="563" height="433.66666666666669"/>
+                <rect key="frame" x="0.0" y="0.0" width="563" height="433.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghm-tq-Vde" userLabel="RetweetedContainer">
@@ -135,6 +135,16 @@
                     <constraint firstItem="8h6-kl-fGn" firstAttribute="top" secondItem="PTE-WU-vSu" secondAttribute="bottom" id="yKa-Ct-PlH"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="9JG-hk-mED" id="KbR-te-Q3z"/>
+                <outlet property="favoriteButton" destination="3Uw-Sh-RJu" id="r7j-4O-KZK"/>
+                <outlet property="handleLabel" destination="C5d-D3-gs5" id="Ohm-lP-5a7"/>
+                <outlet property="nameLabel" destination="k7G-2J-mqE" id="Chs-cE-JHi"/>
+                <outlet property="profileImageView" destination="cb4-gG-3zT" id="rYj-Jl-uTU"/>
+                <outlet property="replyButton" destination="nyV-7E-Dfy" id="pfZ-mJ-B3w"/>
+                <outlet property="retweetButton" destination="JNs-Xd-1ve" id="Z3q-8i-b84"/>
+                <outlet property="timeStampLabel" destination="eCx-xG-mA7" id="kNi-oQ-89F"/>
+            </connections>
             <point key="canvasLocation" x="72.5" y="20"/>
         </tableViewCell>
     </objects>

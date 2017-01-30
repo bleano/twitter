@@ -7,6 +7,7 @@
 //
 
 #import "TweetListViewController.h"
+#import "TweetTableViewCell.h"
 
 @interface TweetListViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tweetTableView;
@@ -18,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tweetTableView.dataSource = self;
+    UINib *uiNib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
+    [self.tweetTableView registerNib:uiNib forCellReuseIdentifier:@"TweetTableViewCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,7 +33,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
+    TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
+    return cell;
 }
 
 @end
