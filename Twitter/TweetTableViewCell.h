@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TweetTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *retweetContainerHeightConstraint;
 
 @end

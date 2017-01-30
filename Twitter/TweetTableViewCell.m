@@ -25,11 +25,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.nameLabel.text = @"KCSorrelli";
-    self.handleLabel.text = @"handleLabel";
+    self.nameLabel.text = @"Karen Scorelli";
+    self.handleLabel.text = @"KCSorrelliKCSorrelliKCSorrelliKCSorrelliKCSorrelliKCSorrelli";
     self.timeStampLabel.text = @"4h";
-    self.contentLabel.text = @"VP of Ops w/Multi Platform Ad Company, addicted to Diet Coke & Peanut Butter (really), Excel Nerd, Mother, Wife, Support System & Cheerleader to all who know me";
-    self.timeStampLabel.text = @"timeStampLabel";
+    self.contentLabel.text = @"VP of Ops w/Multi Platform Ad Company, addicted to Diet Coke & Peanut Butter (really), Excel Nerd, Mother, Wife, Support System & Cheerleader to all who know me.";
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
