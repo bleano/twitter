@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *tweetId;
 @property (strong, nonatomic) NSURL *profileImageURL;
 @property (nonatomic, assign) BOOL retweeted;
+@property (nonatomic, assign) BOOL didIRetweet;
 @property (strong, nonatomic) NSString *retweetedByName;
 - (instancetype) initWithDictionary: (NSDictionary *) jsonDictionary;
 + (NSArray*) tweetsWithArray:(NSArray *) array;

@@ -18,4 +18,5 @@
 - (void) retweetThisId: (NSString*)tweetId retweetWithCompletion:( void (^)(id retweetResponse, NSError *error))completion;
 - (void) openURL: (NSURL *)url;
 @property (strong, nonatomic) NSArray<Tweet *> *timelineTweets;
+@property (strong, nonatomic) NSMutableDictionary<NSString *, Tweet *> *mapOfTweets;
 @end

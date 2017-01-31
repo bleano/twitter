@@ -30,10 +30,13 @@
 @implementation TweetTableViewCell
 - (IBAction)onRetweetButton:(id)sender {
     TwitterClient *twitterClient = [TwitterClient sharedInstance];
+    Tweet *tweet = twitterClient.mapOfTweets[self.tweetId];
+    if(tweet.didIRetweet) return;
     [twitterClient retweetThisId:self.tweetId retweetWithCompletion:^(id response, NSError *error) {
         if(response != nil){
             UIImage *image = [UIImage imageNamed: @"retweet-icon-green@3x.png"];
             [self.retweetButton setImage:image forState:UIControlStateNormal];
+            tweet.didIRetweet = YES;
         }else{
             NSLog(@"getTimelineTweets NSError: %@", error.localizedDescription);
         }
@@ -58,6 +61,10 @@
     self.contentLabel.text =  [NSString stringWithFormat:@"%@",self.tweet.content];
     self.timeStampLabel.text =  [NSString stringWithFormat:@"%@", self.tweet.relativeTime];
     [self.profileImageView setImageWithURL: self.tweet.profileImageURL];
+    if(self.tweet.didIRetweet){
+        UIImage *image = [UIImage imageNamed: @"retweet-icon-green@3x.png"];
+        [self.retweetButton setImage:image forState:UIControlStateNormal];
+    }
 //    if(self.tweet != nil) NSLog(@"\nsetSelected name:%@, handle:%@, content:%@\n\n", self.nameLabel.text, self.handleLabel.text, self.contentLabel.text);
 }
 

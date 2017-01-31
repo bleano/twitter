@@ -30,6 +30,8 @@ static TwitterClient *sharedInstance = nil;
     dispatch_once(&onceToken, ^{
         if (sharedInstance == nil) {
             sharedInstance = [[super alloc] initWithBaseURL:[NSURL URLWithString: baseUrl ] consumerKey: consumerKey consumerSecret: consumerSecret];
+            sharedInstance.mapOfTweets = [[NSMutableDictionary alloc] initWithCapacity:100];
+
         }
     });
     return sharedInstance;
@@ -80,7 +82,6 @@ static TwitterClient *sharedInstance = nil;
      progress:nil
      success:^(NSURLSessionDataTask *task, id responseObject) {
          NSLog(@"absoluteString: %@", task.originalRequest.URL.absoluteString);
-         NSLog(@"retweetWithCompletion: %@", responseObject);
          self.retweetCompletion(responseObject, nil);
      }
      failure:^(NSURLSessionTask *task, NSError *error) {
@@ -101,9 +102,10 @@ static TwitterClient *sharedInstance = nil;
          NSLog(@"absoluteString: %@", task.originalRequest.URL.absoluteString);
          NSMutableArray *_tweets = [NSMutableArray array];
          NSArray *tweets = [Tweet tweetsWithArray:responseObject];
-//         NSLog(@"getTweetsWithCompletion: %@", responseObject);
+         NSLog(@"getTweetsWithCompletion: %@", responseObject);
          for(Tweet *tweet in tweets){
              [_tweets addObject:tweet];
+             [self.mapOfTweets setValue:tweet forKey:tweet.tweetId];
          }
          self.timelineTweets = _tweets;
 //         NSLog(@"getTweetsWithCompletion array size %ld", _tweets.count);

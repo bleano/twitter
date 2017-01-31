@@ -15,6 +15,8 @@
         self.retweeted = NO;
         self.tweetId = jsonDictionary[@"id_str"];
         self.content = jsonDictionary[@"text"];
+        NSNumber *num = [jsonDictionary objectForKey:@"retweeted"];
+        self.didIRetweet = num.intValue == 1;
         NSString *createdAt = jsonDictionary[@"created_at"];
         self.relativeTime = [self dateDiff:createdAt];
         NSDictionary  *userDictionary = jsonDictionary[@"user"];
