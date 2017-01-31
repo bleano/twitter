@@ -71,7 +71,7 @@ static TwitterClient *sharedInstance = nil;
 - (void) getTweetsWithCompletion:( void (^)(NSArray *tweets, NSError *error))completion{
     self.getTweetsCompletion = completion;
     [sharedInstance
-     GET:@"1.1/statuses/home_timeline.json?count=20"
+     GET:@"1.1/statuses/home_timeline.json?count=50"
      parameters:nil
      progress:nil
      success:^(NSURLSessionDataTask *task, id responseObject) {

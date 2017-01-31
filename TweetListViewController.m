@@ -12,9 +12,9 @@
 #import "User.h"
 #import "Tweet.h"
 @interface TweetListViewController () <UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *tweetTableView;
-@property (weak, nonatomic) NSArray *tweets;
-@property (weak, nonatomic) UIRefreshControl *refreshControlForTableView;
+@property (strong, nonatomic) IBOutlet UITableView *tweetTableView;
+@property (strong, nonatomic) NSArray *tweets;
+@property (strong, nonatomic) UIRefreshControl *refreshControlForTableView;
 @end
 
 @implementation TweetListViewController
@@ -47,7 +47,7 @@
     TwitterClient *twitterClient = [TwitterClient sharedInstance];
 
     Tweet * tweet = [twitterClient.timelineTweets objectAtIndex:indexPath.row];
-    NSLog(@"\n\ncellForRowAtIndexPath content:%@, handle:%@, name:%@, image:%@\n\n", tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString);
+    NSLog(@"\n\n cellForRowAtIndexPath content:%@, handle:%@, name:%@, image:%@\n\n", tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString);
     tweetTableViewCell.tweet = tweet;
     return tweetTableViewCell;
 }
