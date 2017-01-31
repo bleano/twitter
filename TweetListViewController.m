@@ -25,11 +25,7 @@
     self.tweetTableView.rowHeight = UITableViewAutomaticDimension;
     UINib *uiNib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
     [self.tweetTableView registerNib:uiNib forCellReuseIdentifier:@"TweetTableViewCell"];
-    TwitterClient *twitterClient = [TwitterClient sharedInstance];
-    NSArray *tweets = [twitterClient homeTimeline];
-    for(Tweet *tweet in tweets){
-        NSLog(@"viewDidLoad tweet: %@", tweet.text);
-    }
+    [self getTimelineTweets];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +40,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TweetTableViewCell *tweetTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
     return tweetTableViewCell;
+}
+
+- (void) getTimelineTweets {
+    TwitterClient *twitterClient = [TwitterClient sharedInstance];
+    [twitterClient getTweetsWithCompletion:^(NSArray *tweets, NSError *error) {
+        if(tweets != nil){
+            for(Tweet *tweet in tweets){
+            NSLog(@"timelineTweet: %@", tweet.text);
+            }
+
+        }else{
+            //error view
+        }
+    }];
 }
 
 @end

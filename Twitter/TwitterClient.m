@@ -16,7 +16,8 @@ NSString * const baseUrl = @"https://api.twitter.com";
 
 @interface TwitterClient()
 @property (nonatomic, strong) void (^loginCompletion) (User *user, NSError *error);
-@property (strong, nonatomic) NSArray<Tweet *> *clientTweets;
+@property (nonatomic, strong) void (^getTweetsCompletion) (NSArray *tweets, NSError *error);
+@property (strong, nonatomic) NSArray<Tweet *> *timelineTweets;
 @end
 
 
@@ -60,12 +61,12 @@ static TwitterClient *sharedInstance = nil;
              NSLog(@"tweet: %@", tweet.text);
              [_tweets addObject:tweet];
          }
-         self.clientTweets = _tweets;
+         self.timelineTweets = _tweets;
      }
      failure:^(NSURLSessionTask *task, NSError *error) {
          NSLog(@"Error: %@", error.localizedDescription);
      }];
-    return _clientTweets;
+    return self.timelineTweets;
 }
 
 - (void) loginWithCompletion:( void (^)(User *user, NSError *error))completion{
@@ -87,6 +88,29 @@ static TwitterClient *sharedInstance = nil;
      }
      ];
 }
+
+- (void) getTweetsWithCompletion:( void (^)(NSArray *tweets, NSError *error))completion{
+    self.getTweetsCompletion = completion;
+    [sharedInstance
+     GET:@"1.1/statuses/home_timeline.json"
+     parameters:nil
+     progress:nil
+     success:^(NSURLSessionDataTask *task, id responseObject) {
+         NSMutableArray *_tweets = [NSMutableArray array];
+         NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+         for(Tweet *tweet in tweets){
+             NSLog(@"getTweetsWithCompletion: %@", tweet.text);
+             [_tweets addObject:tweet];
+         }
+         self.timelineTweets = _tweets;
+         self.getTweetsCompletion(self.timelineTweets, nil);
+     }
+     failure:^(NSURLSessionTask *task, NSError *error) {
+         NSLog(@"Error: %@", error.localizedDescription);
+         self.getTweetsCompletion(nil, error);
+     }];
+}
+
 
 - (void) openURL: (NSURL *)url{
     BDBOAuth1Credential *credential = [BDBOAuth1Credential credentialWithQueryString: url.query];
