@@ -38,6 +38,9 @@
             [self.retweetButton setImage:image forState:UIControlStateNormal];
             tweet.didIRetweet = YES;
         }else{
+            UIImage *image = [UIImage imageNamed: @"retweet-icon-green@3x.png"];
+            [self.retweetButton setImage:image forState:UIControlStateNormal];
+            tweet.didIRetweet = YES;
             NSLog(@"getTimelineTweets NSError: %@", error.localizedDescription);
         }
     }];
@@ -50,6 +53,8 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     if(self.tweet.content == nil) return;
+    UIImage *image = [UIImage imageNamed: @"retweet-icon@3x.png"];
+    [self.retweetButton setImage:image forState:UIControlStateNormal];
     self.tweetId = self.tweet.tweetId;
     self.retweetView.hidden = YES;
     if(self.tweet.retweeted){
@@ -61,10 +66,10 @@
     self.contentLabel.text =  [NSString stringWithFormat:@"%@",self.tweet.content];
     self.timeStampLabel.text =  [NSString stringWithFormat:@"%@", self.tweet.relativeTime];
     [self.profileImageView setImageWithURL: self.tweet.profileImageURL];
-//    if(self.tweet.didIRetweet){
-//        UIImage *image = [UIImage imageNamed: @"retweet-icon-green@3x.png"];
-//        [self.retweetButton setImage:image forState:UIControlStateNormal];
-//    }
+    if(self.tweet.didIRetweet){
+        UIImage *image = [UIImage imageNamed: @"retweet-icon-green@3x.png"];
+        [self.retweetButton setImage:image forState:UIControlStateNormal];
+    }
 //    if(self.tweet != nil) NSLog(@"\nsetSelected name:%@, handle:%@, content:%@\n\n", self.nameLabel.text, self.handleLabel.text, self.contentLabel.text);
 }
 

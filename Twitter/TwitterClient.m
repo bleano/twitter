@@ -104,6 +104,10 @@ static TwitterClient *sharedInstance = nil;
          NSArray *tweets = [Tweet tweetsWithArray:responseObject];
          NSLog(@"getTweetsWithCompletion: %@", responseObject);
          for(Tweet *tweet in tweets){
+             Tweet *savedtweet = sharedInstance.mapOfTweets[tweet.tweetId];
+             if(savedtweet != nil){
+                 tweet.didIRetweet = savedtweet.didIRetweet;
+             }
              [_tweets addObject:tweet];
              [self.mapOfTweets setValue:tweet forKey:tweet.tweetId];
          }
