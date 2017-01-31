@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Tweet : NSObject
-
+@property (weak, nonatomic) NSString *text;
+- (instancetype) initWithDictionary: (NSDictionary *) jsonDictionary;
++ (NSArray*) tweetsWithArray:(NSArray *) array;
 @end

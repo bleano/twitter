@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import <BDBOAuth1Manager/BDBOAuth1SessionManager.h>
 #import "TweetListViewController.h"
-
+#import "LoginController.h"
+#import "TwitterClient.h"
 @interface AppDelegate ()
 
 @end
@@ -17,10 +19,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    TweetListViewController *tweetListViewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+//    TwitterClient *twitterClient = [TwitterClient sharedInstance];
+//    if(twitterClient.isAuthorized){
+//        TweetListViewController *tweetListViewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+//        CGRect frame = [UIScreen mainScreen].bounds;
+//        self.window = [[UIWindow alloc] initWithFrame:frame];
+//        self.window.rootViewController = tweetListViewController;
+//        [self.window makeKeyAndVisible];
+//    }else{
+//        LoginController *loginContoller = [[LoginController alloc] initWithNibName:@"LoginController" bundle:nil];
+//        CGRect frame = [UIScreen mainScreen].bounds;
+//        self.window = [[UIWindow alloc] initWithFrame:frame];
+//        self.window.rootViewController = loginContoller;
+//        [self.window makeKeyAndVisible];
+//    }
+    LoginController *loginContoller = [[LoginController alloc] initWithNibName:@"LoginController" bundle:nil];
     CGRect frame = [UIScreen mainScreen].bounds;
     self.window = [[UIWindow alloc] initWithFrame:frame];
-    self.window.rootViewController = tweetListViewController;
+    self.window.rootViewController = loginContoller;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -52,5 +68,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options{
+    NSLog(@"openURL %@", url);
+    BDBOAuth1Credential *credential = [BDBOAuth1Credential credentialWithQueryString: url.query];
+    TwitterClient *twitterClient = [TwitterClient sharedInstance];
+    [twitterClient openURL:url];
+    return YES;
+}
 @end

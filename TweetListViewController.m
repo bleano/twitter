@@ -8,7 +8,8 @@
 
 #import "TweetListViewController.h"
 #import "TweetTableViewCell.h"
-
+#import "TwitterClient.h"
+#import "User.h"
 @interface TweetListViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tweetTableView;
 
@@ -23,6 +24,8 @@
     self.tweetTableView.rowHeight = UITableViewAutomaticDimension;
     UINib *uiNib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
     [self.tweetTableView registerNib:uiNib forCellReuseIdentifier:@"TweetTableViewCell"];
+    TwitterClient *twitterClient = [TwitterClient sharedInstance];
+    [twitterClient homeTimeline];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,11 +39,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TweetTableViewCell *tweetTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
-//    if(indexPath.row % 2){
-//        tweetTableViewCell.retweetContainerHeightConstraint.constant = 0;
-//    }else{
-//        tweetTableViewCell.retweetContainerHeightConstraint.constant = 24;
-//    }
     return tweetTableViewCell;
 }
 

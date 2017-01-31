@@ -19,6 +19,8 @@
 		EDE661A21E3FDE3F007A587C /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE661A11E3FDE3F007A587C /* TwitterClient.m */; };
 		EDE661A51E3FDEB8007A587C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE661A41E3FDEB8007A587C /* User.m */; };
 		EDE661A81E3FDF09007A587C /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE661A71E3FDF09007A587C /* Tweet.m */; };
+		EDE661AE1E3FF56E007A587C /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE661AC1E3FF56E007A587C /* LoginController.m */; };
+		EDE661AF1E3FF56E007A587C /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE661AD1E3FF56E007A587C /* LoginController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,9 @@
 		EDE661A41E3FDEB8007A587C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		EDE661A61E3FDF09007A587C /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		EDE661A71E3FDF09007A587C /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		EDE661AB1E3FF56E007A587C /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		EDE661AC1E3FF56E007A587C /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		EDE661AD1E3FF56E007A587C /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,9 +137,8 @@
 		EDE661901E3FB95C007A587C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EDE661961E3FB9C7007A587C /* TweetListViewController.h */,
-				EDE661971E3FB9C7007A587C /* TweetListViewController.m */,
-				EDE661981E3FB9C7007A587C /* TweetListViewController.xib */,
+				EDE661AA1E3FF52F007A587C /* Login */,
+				EDE661A91E3FF4F1007A587C /* TweetList */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -156,6 +160,26 @@
 				EDE661A11E3FDE3F007A587C /* TwitterClient.m */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		EDE661A91E3FF4F1007A587C /* TweetList */ = {
+			isa = PBXGroup;
+			children = (
+				EDE661971E3FB9C7007A587C /* TweetListViewController.m */,
+				EDE661981E3FB9C7007A587C /* TweetListViewController.xib */,
+				EDE661961E3FB9C7007A587C /* TweetListViewController.h */,
+			);
+			name = TweetList;
+			sourceTree = "<group>";
+		};
+		EDE661AA1E3FF52F007A587C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EDE661AB1E3FF56E007A587C /* LoginController.h */,
+				EDE661AC1E3FF56E007A587C /* LoginController.m */,
+				EDE661AD1E3FF56E007A587C /* LoginController.xib */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +246,7 @@
 				EDE661881E3FB8EB007A587C /* LaunchScreen.storyboard in Resources */,
 				EDE661851E3FB8EB007A587C /* Assets.xcassets in Resources */,
 				EDE6619A1E3FB9C7007A587C /* TweetListViewController.xib in Resources */,
+				EDE661AF1E3FF56E007A587C /* LoginController.xib in Resources */,
 				EDE6619F1E3FC828007A587C /* TweetTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDE661991E3FB9C7007A587C /* TweetListViewController.m in Sources */,
+				EDE661AE1E3FF56E007A587C /* LoginController.m in Sources */,
 				EDE6617D1E3FB8EB007A587C /* AppDelegate.m in Sources */,
 				EDE661A51E3FDEB8007A587C /* User.m in Sources */,
 				EDE661A81E3FDF09007A587C /* Tweet.m in Sources */,
