@@ -1,4 +1,4 @@
-# Project 3 - *Name of App Here*
+# Project 3 - TWITTER
 
 Twitter is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com).
 
@@ -23,7 +23,8 @@ In other words, design the custom cell with the proper Auto Layout settings.  Yo
    - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
 - [ ] Home Timeline
    - [ ] Tapping on a user image should bring up that user's profile page
-
+   - [X] Tapping on retweet works. Verify in statuses/user_timeline 
+   - [ ] Tapping on favorite works.  Verify in statuses/user_timeline 
 The following **optional** features are implemented:
 
 - [ ] When composing, you should have a countdown in the upper right for the tweet limit.
