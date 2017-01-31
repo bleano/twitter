@@ -20,13 +20,14 @@
         NSDictionary *retweetedInfo = jsonDictionary[@"retweeted_status"];
         if(retweetedInfo != nil){
             NSDictionary  *retweetedInfoUserDictionary = retweetedInfo[@"user"];
-            self.handle = retweetedInfoUserDictionary[@"screen_name"];
+            self.handle =  [NSString stringWithFormat:@"@%@", retweetedInfoUserDictionary[@"screen_name"]];
             self.name = retweetedInfoUserDictionary[@"name"];
             self.retweetedByName = [NSString stringWithFormat:@"%@ Retweeted", userDictionary[@"name"]];
             self.retweeted = YES;
             self.profileImageURL = [NSURL URLWithString: retweetedInfoUserDictionary[@"profile_image_url_https"]];
+            self.content = retweetedInfo[@"text"];
         }else{
-            self.handle = userDictionary[@"screen_name"];
+            self.handle =  [NSString stringWithFormat:@"@%@", userDictionary[@"screen_name"]];
             self.name = userDictionary[@"name"];
             self.profileImageURL = [NSURL URLWithString: userDictionary[@"profile_image_url_https"]];
         }
