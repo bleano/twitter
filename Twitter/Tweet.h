@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Tweet : NSObject
+@property (strong, nonatomic) NSString *relativeTime;
 @property (strong, nonatomic) NSString *content;
 @property (strong, nonatomic) NSString *handle;
 @property (strong, nonatomic) NSString *name;
