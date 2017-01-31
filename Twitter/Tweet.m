@@ -41,7 +41,6 @@
     [frm setFormatterBehavior:NSDateFormatterBehavior10_4];
     [frm setDateFormat: @"EEE MMM d HH:mm:ss Z y"];
     NSDate *newDate = [frm dateFromString:createdAtDate];
-    NSLog(@"newDate:%@", newDate);
     NSDate *todayDate = [NSDate date];
     double ti = [newDate timeIntervalSinceDate:todayDate];
     ti = ti * -1;
@@ -51,12 +50,15 @@
         int diff = round(ti / 60);
         return [NSString stringWithFormat:@"%ds", diff];
     } else if (ti < 3600) {
+        //1 hour
         int diff = round(ti / 60);
         return [NSString stringWithFormat:@"%dm", diff];
     } else if (ti < 86400) {
+        //24 hours
         int diff = round(ti / 60 / 60);
         return[NSString stringWithFormat:@"%dh", diff];
     } else if (ti < 2629743) {
+        //30 days
         int diff = round(ti / 60 / 60 / 24);
         return[NSString stringWithFormat:@"%dd", diff];
     } else {

@@ -42,7 +42,7 @@
     self.contentLabel.text =  [NSString stringWithFormat:@"%@",self.tweet.content];
     self.timeStampLabel.text =  [NSString stringWithFormat:@"%@", self.tweet.relativeTime];
     [self.profileImageView setImageWithURL: self.tweet.profileImageURL];
-    if(self.tweet != nil) NSLog(@"\nsetSelected name:%@, handle:%@, content:%@\n\n", self.nameLabel.text, self.handleLabel.text, self.contentLabel.text);
+//    if(self.tweet != nil) NSLog(@"\nsetSelected name:%@, handle:%@, content:%@\n\n", self.nameLabel.text, self.handleLabel.text, self.contentLabel.text);
 }
 
 @end
