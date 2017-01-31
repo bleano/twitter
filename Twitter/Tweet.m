@@ -16,6 +16,8 @@
         NSDictionary  *userDictionary = jsonDictionary[@"user"];
         self.handle = userDictionary[@"screen_name"];
         self.name = userDictionary[@"name"];
+        NSString *urlString = userDictionary[@"profile_image_url_https"];
+        self.profileImageURL = [NSURL URLWithString: urlString];
     }
     return self;
 }

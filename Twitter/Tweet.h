@@ -12,6 +12,7 @@
 @property (weak, nonatomic) NSString *content;
 @property (weak, nonatomic) NSString *handle;
 @property (weak, nonatomic) NSString *name;
+@property (nonatomic, strong) NSURL *profileImageURL;
 - (instancetype) initWithDictionary: (NSDictionary *) jsonDictionary;
 + (NSArray*) tweetsWithArray:(NSArray *) array;
 @end

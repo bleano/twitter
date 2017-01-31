@@ -7,6 +7,8 @@
 //
 
 #import "TweetTableViewCell.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
+
 
 @interface TweetTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -36,7 +38,8 @@
     [super setSelected:selected animated:animated];
     self.nameLabel.text = self.tweet.name;
     self.handleLabel.text = self.tweet.handle;
-    self.contentLabel.text =  [NSString stringWithFormat:@"%@%@%@%@",self.tweet.content, self.tweet.content, self.tweet.content,self.tweet.content];
+    self.contentLabel.text =  [NSString stringWithFormat:@"%@",self.tweet.content];
+    [self.profileImageView setImageWithURL: self.tweet.profileImageURL];
     if(self.tweet != nil) NSLog(@"\nsetSelected name:%@, handle:%@, content:%@\n\n", self.nameLabel.text, self.handleLabel.text, self.contentLabel.text);
 }
 
