@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3E79D7FE0D5FC9F054CA02AB /* libPods-Twitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4BD355DBC5598571F6B6896 /* libPods-Twitter.a */; };
 		ED3625101E41190100CF85CA /* 1485911442_Retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = ED36250F1E41190100CF85CA /* 1485911442_Retweet.png */; };
+		ED3625121E41299700CF85CA /* retweet-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3625111E41299700CF85CA /* retweet-icon@3x.png */; };
+		ED3625141E412A7900CF85CA /* retweet-icon@3x-50.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3625131E412A7900CF85CA /* retweet-icon@3x-50.png */; };
+		ED3625161E412AD900CF85CA /* favor-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3625151E412AD900CF85CA /* favor-icon@3x.png */; };
+		ED3625181E412B8400CF85CA /* reply-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3625171E412B8400CF85CA /* reply-icon@3x.png */; };
 		EDE6617A1E3FB8EB007A587C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE661791E3FB8EB007A587C /* main.m */; };
 		EDE6617D1E3FB8EB007A587C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE6617C1E3FB8EB007A587C /* AppDelegate.m */; };
 		EDE661851E3FB8EB007A587C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE661841E3FB8EB007A587C /* Assets.xcassets */; };
@@ -29,6 +33,10 @@
 		D439B6F8B21CC67BFC7D952E /* Pods-Twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.debug.xcconfig"; sourceTree = "<group>"; };
 		E4BD355DBC5598571F6B6896 /* libPods-Twitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Twitter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED36250F1E41190100CF85CA /* 1485911442_Retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1485911442_Retweet.png; sourceTree = "<group>"; };
+		ED3625111E41299700CF85CA /* retweet-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-icon@3x.png"; sourceTree = "<group>"; };
+		ED3625131E412A7900CF85CA /* retweet-icon@3x-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-icon@3x-50.png"; sourceTree = "<group>"; };
+		ED3625151E412AD900CF85CA /* favor-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favor-icon@3x.png"; sourceTree = "<group>"; };
+		ED3625171E412B8400CF85CA /* reply-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reply-icon@3x.png"; sourceTree = "<group>"; };
 		EDE661751E3FB8EB007A587C /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE661791E3FB8EB007A587C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EDE6617B1E3FB8EB007A587C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +93,10 @@
 		ED36250E1E4118D500CF85CA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ED3625171E412B8400CF85CA /* reply-icon@3x.png */,
+				ED3625151E412AD900CF85CA /* favor-icon@3x.png */,
+				ED3625131E412A7900CF85CA /* retweet-icon@3x-50.png */,
+				ED3625111E41299700CF85CA /* retweet-icon@3x.png */,
 				ED36250F1E41190100CF85CA /* 1485911442_Retweet.png */,
 			);
 			name = Images;
@@ -255,9 +267,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDE661881E3FB8EB007A587C /* LaunchScreen.storyboard in Resources */,
+				ED3625161E412AD900CF85CA /* favor-icon@3x.png in Resources */,
+				ED3625121E41299700CF85CA /* retweet-icon@3x.png in Resources */,
 				EDE661851E3FB8EB007A587C /* Assets.xcassets in Resources */,
 				EDE6619A1E3FB9C7007A587C /* TweetListViewController.xib in Resources */,
+				ED3625141E412A7900CF85CA /* retweet-icon@3x-50.png in Resources */,
 				EDE661AF1E3FF56E007A587C /* LoginController.xib in Resources */,
+				ED3625181E412B8400CF85CA /* reply-icon@3x.png in Resources */,
 				EDE6619F1E3FC828007A587C /* TweetTableViewCell.xib in Resources */,
 				ED3625101E41190100CF85CA /* 1485911442_Retweet.png in Resources */,
 			);
