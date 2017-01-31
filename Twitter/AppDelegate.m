@@ -19,25 +19,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    TwitterClient *twitterClient = [TwitterClient sharedInstance];
-//    if(twitterClient.isAuthorized){
-//        TweetListViewController *tweetListViewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
-//        CGRect frame = [UIScreen mainScreen].bounds;
-//        self.window = [[UIWindow alloc] initWithFrame:frame];
-//        self.window.rootViewController = tweetListViewController;
-//        [self.window makeKeyAndVisible];
-//    }else{
-//        LoginController *loginContoller = [[LoginController alloc] initWithNibName:@"LoginController" bundle:nil];
-//        CGRect frame = [UIScreen mainScreen].bounds;
-//        self.window = [[UIWindow alloc] initWithFrame:frame];
-//        self.window.rootViewController = loginContoller;
-//        [self.window makeKeyAndVisible];
-//    }
-    LoginController *loginContoller = [[LoginController alloc] initWithNibName:@"LoginController" bundle:nil];
-    CGRect frame = [UIScreen mainScreen].bounds;
-    self.window = [[UIWindow alloc] initWithFrame:frame];
-    self.window.rootViewController = loginContoller;
-    [self.window makeKeyAndVisible];
+    TwitterClient *twitterClient = [TwitterClient sharedInstance];
+    if(twitterClient.isAuthorized){
+        TweetListViewController *tweetListViewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+        CGRect frame = [UIScreen mainScreen].bounds;
+        self.window = [[UIWindow alloc] initWithFrame:frame];
+        self.window.rootViewController = tweetListViewController;
+        [self.window makeKeyAndVisible];
+    }else{
+        LoginController *loginContoller = [[LoginController alloc] initWithNibName:@"LoginController" bundle:nil];
+        CGRect frame = [UIScreen mainScreen].bounds;
+        self.window = [[UIWindow alloc] initWithFrame:frame];
+        self.window.rootViewController = loginContoller;
+        [self.window makeKeyAndVisible];
+    }
     return YES;
 }
 

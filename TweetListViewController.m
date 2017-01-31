@@ -10,6 +10,7 @@
 #import "TweetTableViewCell.h"
 #import "TwitterClient.h"
 #import "User.h"
+#import "Tweet.h"
 @interface TweetListViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tweetTableView;
 
@@ -25,7 +26,10 @@
     UINib *uiNib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
     [self.tweetTableView registerNib:uiNib forCellReuseIdentifier:@"TweetTableViewCell"];
     TwitterClient *twitterClient = [TwitterClient sharedInstance];
-    [twitterClient homeTimeline];
+    NSArray *tweets = [twitterClient homeTimeline];
+    for(Tweet *tweet in tweets){
+        NSLog(@"viewDidLoad tweet: %@", tweet.text);
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -14,9 +14,9 @@ NSString * const consumerKey = @"geqayCv0xeIIBmRmr6DcIpWt1";
 NSString * const consumerSecret = @"SCoHYUvLwW1ugOGw4s5bDMh1fBs3vRreH9ad1uscMBCG7oGPlq";
 NSString * const baseUrl = @"https://api.twitter.com";
 
-
 @interface TwitterClient()
 @property (nonatomic, strong) void (^loginCompletion) (User *user, NSError *error);
+@property (strong, nonatomic) NSArray<Tweet *> *clientTweets;
 @end
 
 
@@ -49,22 +49,23 @@ static TwitterClient *sharedInstance = nil;
 }
 
 - (NSArray *) homeTimeline {
-    NSArray *tweets2 = nil;
     [sharedInstance
      GET:@"1.1/statuses/home_timeline.json"
      parameters:nil
      progress:nil
      success:^(NSURLSessionDataTask *task, id responseObject) {
-//         NSLog(@"home_timeline.json: %@", responseObject);
+         NSMutableArray *_tweets = [NSMutableArray array];
          NSArray *tweets = [Tweet tweetsWithArray:responseObject];
          for(Tweet *tweet in tweets){
              NSLog(@"tweet: %@", tweet.text);
+             [_tweets addObject:tweet];
          }
+         self.clientTweets = _tweets;
      }
      failure:^(NSURLSessionTask *task, NSError *error) {
          NSLog(@"Error: %@", error.localizedDescription);
      }];
-    return tweets2;
+    return _clientTweets;
 }
 
 - (void) loginWithCompletion:( void (^)(User *user, NSError *error))completion{
@@ -96,23 +97,24 @@ static TwitterClient *sharedInstance = nil;
      success:^(BDBOAuth1Credential *requestToken) {
          NSLog(@"access_token: %@", requestToken.token);
          [self.requestSerializer saveAccessToken: requestToken];
+         [self
+          GET:@"1.1/account/verify_credentials.json"
+          parameters:nil
+          progress:nil
+          success:^(NSURLSessionDataTask *task, id responseObject) {
+              User *user = [[User alloc] initWithDictionary: responseObject];
+              NSLog(@"user: %@", user.twitterScreenName);
+              self.loginCompletion(user, nil);
+          }
+          failure:^(NSURLSessionTask *task, NSError *error) {
+              NSLog(@"Error: %@", error.localizedDescription);
+              self.loginCompletion(nil, error);
+          }];
      }
      failure:^(NSError *error) {
          NSLog(@"Error: %@", error.localizedDescription);
      }];
-//    [self
-//     GET:@"1.1/account/verify_credentials.json"
-//     parameters:nil
-//     progress:nil
-//     success:^(NSURLSessionDataTask *task, id responseObject) {
-//         User *user = [[User alloc] initWithDictionary: responseObject];
-//         NSLog(@"user: %@", user.twitterScreenName);
-//         self.loginCompletion(user, nil);
-//     }
-//     failure:^(NSURLSessionTask *task, NSError *error) {
-//         NSLog(@"Error: %@", error.localizedDescription);
-//         self.loginCompletion(nil, error);
-//     }];
+
     
 }
 
