@@ -78,6 +78,7 @@ static TwitterClient *sharedInstance = nil;
          NSLog(@"absoluteString: %@", task.originalRequest.URL.absoluteString);
          NSMutableArray *_tweets = [NSMutableArray array];
          NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+         NSLog(@"getTweetsWithCompletion: %@", responseObject);
          for(Tweet *tweet in tweets){
              [_tweets addObject:tweet];
          }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E79D7FE0D5FC9F054CA02AB /* libPods-Twitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4BD355DBC5598571F6B6896 /* libPods-Twitter.a */; };
+		ED3625101E41190100CF85CA /* 1485911442_Retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = ED36250F1E41190100CF85CA /* 1485911442_Retweet.png */; };
 		EDE6617A1E3FB8EB007A587C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE661791E3FB8EB007A587C /* main.m */; };
 		EDE6617D1E3FB8EB007A587C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE6617C1E3FB8EB007A587C /* AppDelegate.m */; };
 		EDE661851E3FB8EB007A587C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE661841E3FB8EB007A587C /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		AC212A2BB14B273611BEDF8D /* Pods-Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.release.xcconfig"; sourceTree = "<group>"; };
 		D439B6F8B21CC67BFC7D952E /* Pods-Twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.debug.xcconfig"; sourceTree = "<group>"; };
 		E4BD355DBC5598571F6B6896 /* libPods-Twitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Twitter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED36250F1E41190100CF85CA /* 1485911442_Retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1485911442_Retweet.png; sourceTree = "<group>"; };
 		EDE661751E3FB8EB007A587C /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE661791E3FB8EB007A587C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EDE6617B1E3FB8EB007A587C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ED36250E1E4118D500CF85CA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				ED36250F1E41190100CF85CA /* 1485911442_Retweet.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		EDE6616C1E3FB8EB007A587C = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 		EDE661771E3FB8EB007A587C /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				ED36250E1E4118D500CF85CA /* Images */,
 				EDE661921E3FB96A007A587C /* API */,
 				EDE661911E3FB963007A587C /* Views */,
 				EDE661901E3FB95C007A587C /* Controllers */,
@@ -248,6 +259,7 @@
 				EDE6619A1E3FB9C7007A587C /* TweetListViewController.xib in Resources */,
 				EDE661AF1E3FF56E007A587C /* LoginController.xib in Resources */,
 				EDE6619F1E3FC828007A587C /* TweetTableViewCell.xib in Resources */,
+				ED3625101E41190100CF85CA /* 1485911442_Retweet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

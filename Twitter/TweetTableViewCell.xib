@@ -16,18 +16,31 @@
             <rect key="frame" x="0.0" y="0.0" width="563" height="434"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="563" height="433.66666666666669"/>
+                <rect key="frame" x="0.0" y="0.0" width="563" height="433"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghm-tq-Vde" userLabel="RetweetContainer">
                         <rect key="frame" x="0.0" y="0.0" width="563" height="24"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1d-3Y-znI" userLabel="RetweetedBy">
+                                <rect key="frame" x="129" y="0.0" width="385" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1485911442_Retweet.png" translatesAutoresizingMaskIntoConstraints="NO" id="Co1-vm-bcJ" userLabel="RetweetIcon">
+                                <rect key="frame" x="95" y="0.0" width="26" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.10828127545062549" green="0.98884795545724957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="DfU-1a-wQe"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODt-7I-HRT" userLabel="ImageContainer">
-                        <rect key="frame" x="8" y="24" width="68" height="409.66666666666669"/>
+                        <rect key="frame" x="8" y="24" width="68" height="410"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cb4-gG-3zT">
                                 <rect key="frame" x="12" y="16" width="44" height="44"/>
@@ -45,7 +58,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTE-WU-vSu" userLabel="TweetContainer">
-                        <rect key="frame" x="76" y="24" width="487" height="370.33333333333331"/>
+                        <rect key="frame" x="76" y="24" width="487" height="370"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7G-2J-mqE">
                                 <rect key="frame" x="18" y="8" width="45" height="21"/>
@@ -58,7 +71,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCx-xG-mA7" userLabel="Timestamp">
-                                <rect key="frame" x="385.33333333333326" y="8.3333333333333357" width="85.666666666666686" height="21"/>
+                                <rect key="frame" x="385.33333333333326" y="8" width="85.666666666666686" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" id="6JU-D1-aa1"/>
                                 </constraints>
@@ -67,13 +80,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TweetContent" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9JG-hk-mED" userLabel="TweetContent">
-                                <rect key="frame" x="18" y="45" width="461" height="325.33333333333331"/>
+                                <rect key="frame" x="18" y="45" width="461" height="325"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Handle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5d-D3-gs5">
-                                <rect key="frame" x="71" y="8.3333333333333357" width="54.333333333333343" height="21"/>
+                                <rect key="frame" x="71" y="8" width="54.333333333333343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" id="eb0-H7-v2u"/>
                                 </constraints>
@@ -100,7 +113,7 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8h6-kl-fGn" userLabel="TweetActionsContainer">
-                        <rect key="frame" x="76" y="393.66666666666669" width="487" height="40"/>
+                        <rect key="frame" x="76" y="394" width="487" height="40"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyV-7E-Dfy" userLabel="Reply">
                                 <rect key="frame" x="0.0" y="0.0" width="162.33333333333334" height="40"/>
@@ -145,9 +158,15 @@
                 <outlet property="replyButton" destination="nyV-7E-Dfy" id="pfZ-mJ-B3w"/>
                 <outlet property="retweetButton" destination="JNs-Xd-1ve" id="Z3q-8i-b84"/>
                 <outlet property="retweetContainerHeightConstraint" destination="DfU-1a-wQe" id="YfW-v0-L4q"/>
+                <outlet property="retweetIcon" destination="Co1-vm-bcJ" id="jAc-e3-nud"/>
+                <outlet property="retweetLabel" destination="d1d-3Y-znI" id="7pc-Uc-OGP"/>
+                <outlet property="retweetView" destination="ghm-tq-Vde" id="RjV-Wf-LKb"/>
                 <outlet property="timeStampLabel" destination="eCx-xG-mA7" id="kNi-oQ-89F"/>
             </connections>
             <point key="canvasLocation" x="72.5" y="20"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="1485911442_Retweet.png" width="24" height="24"/>
+    </resources>
 </document>

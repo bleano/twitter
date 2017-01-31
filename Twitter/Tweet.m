@@ -12,14 +12,26 @@
 - (instancetype) initWithDictionary: (NSDictionary *) jsonDictionary{
     self = [super init];
     if(self){
+        self.retweeted = NO;
         self.content = jsonDictionary[@"text"];
         NSString *createdAt = jsonDictionary[@"created_at"];
         self.relativeTime = [self dateDiff:createdAt];
         NSDictionary  *userDictionary = jsonDictionary[@"user"];
-        self.handle = userDictionary[@"screen_name"];
-        self.name = userDictionary[@"name"];
-        NSString *urlString = userDictionary[@"profile_image_url_https"];
-        self.profileImageURL = [NSURL URLWithString: urlString];
+        NSDictionary *retweetedInfo = jsonDictionary[@"retweeted_status"];
+        if(retweetedInfo != nil){
+            NSDictionary  *retweetedInfoUserDictionary = retweetedInfo[@"user"];
+            self.handle = retweetedInfoUserDictionary[@"screen_name"];
+            self.name = retweetedInfoUserDictionary[@"name"];
+            self.retweetedByName = [NSString stringWithFormat:@"%@ Retweeted", userDictionary[@"name"]];
+            self.retweeted = YES;
+            self.profileImageURL = [NSURL URLWithString: retweetedInfoUserDictionary[@"profile_image_url_https"]];
+        }else{
+            self.handle = userDictionary[@"screen_name"];
+            self.name = userDictionary[@"name"];
+            self.profileImageURL = [NSURL URLWithString: userDictionary[@"profile_image_url_https"]];
+        }
+
+
 //        NSLog(@"\n\nTweet initWithDictionary content:%@, handle:%@, name:%@, image:%@\n\n", self.content, self.handle, self.name, urlString);
     }
     return self;

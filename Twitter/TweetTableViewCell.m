@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UIView *retweetView;
+@property (weak, nonatomic) IBOutlet UIImageView *retweetIcon;
+@property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
 
 @end
 
@@ -37,6 +40,11 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     if(self.tweet.content == nil) return;
+    self.retweetView.hidden = YES;
+    if(self.tweet.retweeted){
+        self.retweetView.hidden = NO;
+        self.retweetLabel.text = self.tweet.retweetedByName;
+    }
     self.nameLabel.text = self.tweet.name;
     self.handleLabel.text = self.tweet.handle;
     self.contentLabel.text =  [NSString stringWithFormat:@"%@",self.tweet.content];
