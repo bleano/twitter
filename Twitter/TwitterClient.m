@@ -17,6 +17,7 @@ NSString * const baseUrl = @"https://api.twitter.com";
 @interface TwitterClient()
 @property (nonatomic, strong) void (^loginCompletion) (User *user, NSError *error);
 @property (nonatomic, strong) void (^getTweetsCompletion) (NSArray *tweets, NSError *error);
+@property (nonatomic, strong) void (^retweetCompletion) (id response, NSError *error);
 @end
 
 
@@ -67,6 +68,30 @@ static TwitterClient *sharedInstance = nil;
      }
      ];
 }
+
+
+- (void) retweetThisId: (NSString*)tweetId retweetWithCompletion:( void (^)(id retweetResponse, NSError *error))completion{
+    self.retweetCompletion = completion;
+    [sharedInstance
+     POST:[NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweetId]
+     parameters:nil
+     progress:nil
+     success:^(NSURLSessionDataTask *task, id responseObject) {
+         NSLog(@"absoluteString: %@", task.originalRequest.URL.absoluteString);
+         NSMutableArray *_tweets = [NSMutableArray array];
+         NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+         for(Tweet *tweet in tweets){
+             [_tweets addObject:tweet];
+         }
+         self.retweetCompletion(responseObject, nil);
+     }
+     failure:^(NSURLSessionTask *task, NSError *error) {
+         NSLog(@"retweetWithCompletion NSError: %@", error.localizedDescription);
+         self.retweetCompletion(nil, error);
+     }];
+    
+}
+
 
 - (void) getTweetsWithCompletion:( void (^)(NSArray *tweets, NSError *error))completion{
     self.getTweetsCompletion = completion;

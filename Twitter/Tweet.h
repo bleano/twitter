@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSString *content;
 @property (strong, nonatomic) NSString *handle;
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *tweetId;
 @property (strong, nonatomic) NSURL *profileImageURL;
 @property (nonatomic, assign) BOOL retweeted;
 @property (strong, nonatomic) NSString *retweetedByName;

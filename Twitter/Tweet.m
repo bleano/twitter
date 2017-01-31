@@ -13,6 +13,7 @@
     self = [super init];
     if(self){
         self.retweeted = NO;
+        self.tweetId = jsonDictionary[@"id_str"];
         self.content = jsonDictionary[@"text"];
         NSString *createdAt = jsonDictionary[@"created_at"];
         self.relativeTime = [self dateDiff:createdAt];
@@ -41,7 +42,7 @@
         [tweets addObject:tweet];
     }
     for(Tweet *tweet in tweets){
-        NSLog(@"\n\n\tcontent:[%@], \n\thandle:[%@], \n\tname:[%@], \n\timage:[%@]\n\n", tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString);
+        NSLog(@"\n\n\tid:[%@], \n\tcontent:[%@], \n\thandle:[%@], \n\tname:[%@], \n\timage:[%@]\n\n", tweet.tweetId, tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString);
     }
     return tweets;
 }
