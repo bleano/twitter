@@ -30,11 +30,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.nameLabel.text = @"Karen Scorelli";
-    self.handleLabel.text = @"KCSorrelliKCSorrelliKCSorrelliKCSorrelliKCSorrelliKCSorrelli";
-    self.timeStampLabel.text = @"4h";
-    self.contentLabel.text = @"Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger. The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.";
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

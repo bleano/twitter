@@ -30,9 +30,6 @@
             self.name = userDictionary[@"name"];
             self.profileImageURL = [NSURL URLWithString: userDictionary[@"profile_image_url_https"]];
         }
-
-
-//        NSLog(@"\n\nTweet initWithDictionary content:%@, handle:%@, name:%@, image:%@\n\n", self.content, self.handle, self.name, urlString);
     }
     return self;
 }
@@ -42,12 +39,14 @@
         Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary];
         [tweets addObject:tweet];
     }
+    for(Tweet *tweet in tweets){
+        NSLog(@"\n\n\tcontent:[%@], \n\thandle:[%@], \n\tname:[%@], \n\timage:[%@]\n\n", tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString);
+    }
     return tweets;
 }
 
 - (NSString *)dateDiff:(NSString *)createdAtDate {
     //"created_at": "Tue Aug 28 21:16:23 +0000 2012",
-
     NSDateFormatter *frm = [[NSDateFormatter alloc] init];
     [frm setDateStyle:NSDateFormatterLongStyle];
     [frm setFormatterBehavior:NSDateFormatterBehavior10_4];
