@@ -13,7 +13,6 @@
 @interface TwitterClient : BDBOAuth1SessionManager
 + (TwitterClient *)sharedInstance;
 - (void) currentAccount;
-- (NSArray *) homeTimeline;
 - (void) loginWithCompletion:( void (^)(User *user, NSError *error))completion;
 - (void) getTweetsWithCompletion:( void (^)(NSArray *tweets, NSError *error))completion;
 - (void) openURL: (NSURL *)url;

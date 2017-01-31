@@ -18,6 +18,7 @@
         self.name = userDictionary[@"name"];
         NSString *urlString = userDictionary[@"profile_image_url_https"];
         self.profileImageURL = [NSURL URLWithString: urlString];
+//        NSLog(@"\n\nTweet initWithDictionary content:%@, handle:%@, name:%@, image:%@\n\n", self.content, self.handle, self.name, urlString);
     }
     return self;
 }

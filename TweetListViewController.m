@@ -39,13 +39,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.tweets.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TweetTableViewCell *tweetTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
     TwitterClient *twitterClient = [TwitterClient sharedInstance];
-    tweetTableViewCell.tweet = [twitterClient.timelineTweets objectAtIndex:indexPath.row];
+
+    Tweet * tweet = [twitterClient.timelineTweets objectAtIndex:indexPath.row];
+    NSLog(@"\n\ncellForRowAtIndexPath content:%@, handle:%@, name:%@, image:%@\n\n", tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString);
+    tweetTableViewCell.tweet = tweet;
     return tweetTableViewCell;
 }
 

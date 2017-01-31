@@ -36,6 +36,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+    if(self.tweet.content == nil) return;
     self.nameLabel.text = self.tweet.name;
     self.handleLabel.text = self.tweet.handle;
     self.contentLabel.text =  [NSString stringWithFormat:@"%@",self.tweet.content];
