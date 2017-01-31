@@ -28,14 +28,16 @@
     self.nameLabel.text = @"Karen Scorelli";
     self.handleLabel.text = @"KCSorrelliKCSorrelliKCSorrelliKCSorrelliKCSorrelliKCSorrelli";
     self.timeStampLabel.text = @"4h";
-    self.contentLabel.text = @"VP of Ops w/Multi Platform Ad Company, addicted to Diet Coke & Peanut Butter (really), Excel Nerd, Mother, Wife, Support System & Cheerleader to all who know me.VP of Ops w/Multi Platform Ad Company, addicted to Diet Coke & Peanut Butter (really), Excel Nerd, Mother, Wife, Support System & Cheerleader to all who know me.VP of Ops w/Multi Platform Ad Company, addicted to Diet Coke & Peanut Butter (really), Excel Nerd, Mother, Wife, Support System & Cheerleader to all who know me.";
+    self.contentLabel.text = @"Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger. The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.";
 
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    self.nameLabel.text = self.tweet.name;
+    self.handleLabel.text = self.tweet.handle;
+    self.contentLabel.text =  [NSString stringWithFormat:@"%@%@%@%@",self.tweet.content, self.tweet.content, self.tweet.content,self.tweet.content];
+    if(self.tweet != nil) NSLog(@"\nsetSelected name:%@, handle:%@, content:%@\n\n", self.nameLabel.text, self.handleLabel.text, self.contentLabel.text);
 }
 
 @end

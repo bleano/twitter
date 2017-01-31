@@ -17,7 +17,6 @@ NSString * const baseUrl = @"https://api.twitter.com";
 @interface TwitterClient()
 @property (nonatomic, strong) void (^loginCompletion) (User *user, NSError *error);
 @property (nonatomic, strong) void (^getTweetsCompletion) (NSArray *tweets, NSError *error);
-@property (strong, nonatomic) NSArray<Tweet *> *timelineTweets;
 @end
 
 
@@ -51,14 +50,13 @@ static TwitterClient *sharedInstance = nil;
 
 - (NSArray *) homeTimeline {
     [sharedInstance
-     GET:@"1.1/statuses/home_timeline.json"
+     GET:@"1.1/statuses/home_timeline.json?count=5"
      parameters:nil
      progress:nil
      success:^(NSURLSessionDataTask *task, id responseObject) {
          NSMutableArray *_tweets = [NSMutableArray array];
          NSArray *tweets = [Tweet tweetsWithArray:responseObject];
          for(Tweet *tweet in tweets){
-             NSLog(@"tweet: %@", tweet.text);
              [_tweets addObject:tweet];
          }
          self.timelineTweets = _tweets;
@@ -92,21 +90,22 @@ static TwitterClient *sharedInstance = nil;
 - (void) getTweetsWithCompletion:( void (^)(NSArray *tweets, NSError *error))completion{
     self.getTweetsCompletion = completion;
     [sharedInstance
-     GET:@"1.1/statuses/home_timeline.json"
+     GET:@"1.1/statuses/home_timeline.json?count=5"
      parameters:nil
      progress:nil
      success:^(NSURLSessionDataTask *task, id responseObject) {
+         NSLog(@"absoluteString: %@", task.originalRequest.URL.absoluteString);
+         NSLog(@"responseObject: %@", responseObject);
          NSMutableArray *_tweets = [NSMutableArray array];
          NSArray *tweets = [Tweet tweetsWithArray:responseObject];
          for(Tweet *tweet in tweets){
-             NSLog(@"getTweetsWithCompletion: %@", tweet.text);
              [_tweets addObject:tweet];
          }
          self.timelineTweets = _tweets;
          self.getTweetsCompletion(self.timelineTweets, nil);
      }
      failure:^(NSURLSessionTask *task, NSError *error) {
-         NSLog(@"Error: %@", error.localizedDescription);
+         NSLog(@"getTweetsWithCompletion NSError: %@", error.localizedDescription);
          self.getTweetsCompletion(nil, error);
      }];
 }

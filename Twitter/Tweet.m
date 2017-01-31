@@ -12,7 +12,10 @@
 - (instancetype) initWithDictionary: (NSDictionary *) jsonDictionary{
     self = [super init];
     if(self){
-        self.text = jsonDictionary[@"text"];
+        self.content = jsonDictionary[@"text"];
+        NSDictionary  *userDictionary = jsonDictionary[@"user"];
+        self.handle = userDictionary[@"screen_name"];
+        self.name = userDictionary[@"name"];
     }
     return self;
 }

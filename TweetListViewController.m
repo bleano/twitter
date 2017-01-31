@@ -13,13 +13,18 @@
 #import "Tweet.h"
 @interface TweetListViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tweetTableView;
-
+@property (weak, nonatomic) NSArray *tweets;
+@property (weak, nonatomic) UIRefreshControl *refreshControlForTableView;
 @end
 
 @implementation TweetListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIRefreshControl *uiRefreshControl = [[UIRefreshControl alloc]init];
+    self.refreshControlForTableView = uiRefreshControl;
+    [self.tweetTableView addSubview:uiRefreshControl];
+    [self.refreshControlForTableView addTarget:self action:@selector(getTimelineTweets) forControlEvents:UIControlEventValueChanged];
     self.tweetTableView.dataSource = self;
     self.tweetTableView.estimatedRowHeight = 200;
     self.tweetTableView.rowHeight = UITableViewAutomaticDimension;
@@ -34,11 +39,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TweetTableViewCell *tweetTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
+    TwitterClient *twitterClient = [TwitterClient sharedInstance];
+    tweetTableViewCell.tweet = [twitterClient.timelineTweets objectAtIndex:indexPath.row];
     return tweetTableViewCell;
 }
 
@@ -46,14 +53,18 @@
     TwitterClient *twitterClient = [TwitterClient sharedInstance];
     [twitterClient getTweetsWithCompletion:^(NSArray *tweets, NSError *error) {
         if(tweets != nil){
-            for(Tweet *tweet in tweets){
-            NSLog(@"timelineTweet: %@", tweet.text);
-            }
-
+            self.tweets = tweets;
+            [self performSelectorOnMainThread:@selector(reload) withObject:nil waitUntilDone: YES];
         }else{
-            //error view
+                     NSLog(@"getTimelineTweets NSError: %@", error.localizedDescription);
         }
     }];
+}
+
+- (void) reload{
+    [self.refreshControlForTableView endRefreshing];
+    [self.tweetTableView reloadData];
+
 }
 
 @end
