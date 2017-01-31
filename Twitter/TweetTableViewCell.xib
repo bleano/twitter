@@ -114,15 +114,18 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyV-7E-Dfy" userLabel="Reply">
                                 <rect key="frame" x="0.0" y="0.0" width="211.66666666666669" height="40"/>
-                                <state key="normal" title="Share" image="reply-icon.png"/>
+                                <state key="normal" image="reply-icon.png"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNs-Xd-1ve">
                                 <rect key="frame" x="211.66666666666669" y="0.0" width="211.66666666666663" height="40"/>
-                                <state key="normal" title="Retweet" image="retweet-icon.png"/>
+                                <state key="normal" image="retweet-icon.png"/>
+                                <connections>
+                                    <action selector="onRetweetButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jd4-1a-eDs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Uw-Sh-RJu">
                                 <rect key="frame" x="423.33333333333326" y="0.0" width="211.66666666666674" height="40"/>
-                                <state key="normal" title="Favorite" image="favor-icon.png"/>
+                                <state key="normal" image="favor-icon.png"/>
                             </button>
                         </subviews>
                         <constraints>

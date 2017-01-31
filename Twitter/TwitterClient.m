@@ -72,21 +72,19 @@ static TwitterClient *sharedInstance = nil;
 
 - (void) retweetThisId: (NSString*)tweetId retweetWithCompletion:( void (^)(id retweetResponse, NSError *error))completion{
     self.retweetCompletion = completion;
+    NSString *url = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweetId];
+    NSLog(@"retweetThisId: %@", url);
     [sharedInstance
      POST:[NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweetId]
      parameters:nil
      progress:nil
      success:^(NSURLSessionDataTask *task, id responseObject) {
          NSLog(@"absoluteString: %@", task.originalRequest.URL.absoluteString);
-         NSMutableArray *_tweets = [NSMutableArray array];
-         NSArray *tweets = [Tweet tweetsWithArray:responseObject];
-         for(Tweet *tweet in tweets){
-             [_tweets addObject:tweet];
-         }
+         NSLog(@"retweetWithCompletion: %@", responseObject);
          self.retweetCompletion(responseObject, nil);
      }
      failure:^(NSURLSessionTask *task, NSError *error) {
-         NSLog(@"retweetWithCompletion NSError: %@", error.localizedDescription);
+         NSLog(@"retweetWithCompletion NSError: %@", error.debugDescription);
          self.retweetCompletion(nil, error);
      }];
     

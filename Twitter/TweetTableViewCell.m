@@ -7,6 +7,7 @@
 //
 
 #import "TweetTableViewCell.h"
+#import "TwitterClient.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
 
@@ -23,10 +24,21 @@
 @property (weak, nonatomic) IBOutlet UIView *retweetView;
 @property (weak, nonatomic) IBOutlet UIImageView *retweetIcon;
 @property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
-
+@property (strong, nonatomic) NSString *tweetId;
 @end
 
 @implementation TweetTableViewCell
+- (IBAction)onRetweetButton:(id)sender {
+    TwitterClient *twitterClient = [TwitterClient sharedInstance];
+    [twitterClient retweetThisId:self.tweetId retweetWithCompletion:^(id response, NSError *error) {
+        if(response != nil){
+            UIImage *image = [UIImage imageNamed: @"retweet-icon-green@3x.png"];
+            [self.retweetButton setImage:image forState:UIControlStateNormal];
+        }else{
+            NSLog(@"getTimelineTweets NSError: %@", error.localizedDescription);
+        }
+    }];
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -35,6 +47,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     if(self.tweet.content == nil) return;
+    self.tweetId = self.tweet.tweetId;
     self.retweetView.hidden = YES;
     if(self.tweet.retweeted){
         self.retweetView.hidden = NO;
