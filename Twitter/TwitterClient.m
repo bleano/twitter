@@ -82,7 +82,7 @@ static TwitterClient *sharedInstance = nil;
              [_tweets addObject:tweet];
          }
          self.timelineTweets = _tweets;
-         NSLog(@"getTweetsWithCompletion array size %ld", _tweets.count);
+//         NSLog(@"getTweetsWithCompletion array size %ld", _tweets.count);
          self.getTweetsCompletion(self.timelineTweets, nil);
      }
      failure:^(NSURLSessionTask *task, NSError *error) {
