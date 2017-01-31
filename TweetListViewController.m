@@ -57,7 +57,7 @@
     [twitterClient getTweetsWithCompletion:^(NSArray *tweets, NSError *error) {
         if(tweets != nil){
             self.tweets = tweets;
-            [self performSelectorOnMainThread:@selector(reload) withObject:nil waitUntilDone: YES];
+            [self performSelectorOnMainThread:@selector(reload) withObject:nil waitUntilDone: NO];
         }else{
             NSLog(@"getTimelineTweets NSError: %@", error.localizedDescription);
         }
