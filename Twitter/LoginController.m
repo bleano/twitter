@@ -8,6 +8,7 @@
 
 #import "LoginController.h"
 #import "TwitterClient.h"
+#import "TweetListViewController.h"
 @interface LoginController ()
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
@@ -38,7 +39,10 @@
     TwitterClient *twitterClient = [TwitterClient sharedInstance];
     [twitterClient loginWithCompletion:^(User *user, NSError *error) {
         if(user != nil){
-            NSLog(@"HELLO: %@", user.twitterName);
+            TweetListViewController *controller  =
+            [[TweetListViewController alloc] initWithNibName:@"TweetListViewController"
+                                                   bundle:nil];
+            [self presentViewController:controller animated:YES completion:nil];
         }else{
             //error view
         }
