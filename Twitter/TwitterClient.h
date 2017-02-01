@@ -15,8 +15,11 @@
 - (void) currentAccount;
 - (void) loginWithCompletion:( void (^)(User *user, NSError *error))completion;
 - (void) getTweetsWithCompletion:( void (^)(NSArray *tweets, NSError *error))completion;
+- (void) getMyTweetsWithCompletion:( void (^)(NSArray *tweets, NSError *error))completion;
 - (void) retweetThisId: (NSString*)tweetId retweetWithCompletion:( void (^)(id retweetResponse, NSError *error))completion;
 - (void) openURL: (NSURL *)url;
 @property (strong, nonatomic) NSArray<Tweet *> *timelineTweets;
+@property (strong, nonatomic) NSArray<Tweet *> *userTweets;
 @property (strong, nonatomic) NSMutableDictionary<NSString *, Tweet *> *mapOfTweets;
+@property (strong, nonatomic) NSMutableDictionary<NSString *, Tweet *> *mapOfMyTweets;
 @end

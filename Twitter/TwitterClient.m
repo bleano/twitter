@@ -17,6 +17,7 @@ NSString * const baseUrl = @"https://api.twitter.com";
 @interface TwitterClient()
 @property (nonatomic, strong) void (^loginCompletion) (User *user, NSError *error);
 @property (nonatomic, strong) void (^getTweetsCompletion) (NSArray *tweets, NSError *error);
+@property (nonatomic, strong) void (^getMyTweetsCompletion) (NSArray *tweets, NSError *error);
 @property (nonatomic, strong) void (^retweetCompletion) (id response, NSError *error);
 @end
 
@@ -31,7 +32,7 @@ static TwitterClient *sharedInstance = nil;
         if (sharedInstance == nil) {
             sharedInstance = [[super alloc] initWithBaseURL:[NSURL URLWithString: baseUrl ] consumerKey: consumerKey consumerSecret: consumerSecret];
             sharedInstance.mapOfTweets = [[NSMutableDictionary alloc] initWithCapacity:100];
-
+            sharedInstance.mapOfMyTweets = [[NSMutableDictionary alloc] initWithCapacity:100];
         }
     });
     return sharedInstance;
@@ -90,7 +91,32 @@ static TwitterClient *sharedInstance = nil;
      }];
     
 }
-
+- (void) getMyTweetsWithCompletion:( void (^)(NSArray *tweets, NSError *error))completion{
+    self.getMyTweetsCompletion = completion;
+    [sharedInstance
+     GET:@"1.1/statuses/user_timeline.json?count=50"
+     parameters:nil
+     progress:nil
+     success:^(NSURLSessionDataTask *task, id responseObject) {
+         NSLog(@"absoluteString: %@", task.originalRequest.URL.absoluteString);
+         NSMutableArray *_tweets = [NSMutableArray array];
+         NSArray *tweets = [Tweet tweetsWithArray:responseObject fromUserTimeline:YES];
+//         NSLog(@"getMyTweetsWithCompletion: %@", responseObject);
+         for(Tweet *tweet in tweets){
+             if(tweet == nil) continue;
+             if(tweet.retweetedInfoTweetId == nil) continue;
+             [_tweets addObject:tweet];
+             [self.mapOfMyTweets setValue:tweet forKey:tweet.retweetedInfoTweetId];
+         }
+         self.userTweets = _tweets;
+         //         NSLog(@"getTweetsWithCompletion array size %ld", _tweets.count);
+         self.getMyTweetsCompletion(self.userTweets, nil);
+     }
+     failure:^(NSURLSessionTask *task, NSError *error) {
+         NSLog(@"getTweetsWithCogetMyTweetsWithCompletionmpletion NSError: %@", error.localizedDescription);
+         self.getTweetsCompletion(nil, error);
+     }];
+}
 
 - (void) getTweetsWithCompletion:( void (^)(NSArray *tweets, NSError *error))completion{
     self.getTweetsCompletion = completion;
@@ -101,13 +127,9 @@ static TwitterClient *sharedInstance = nil;
      success:^(NSURLSessionDataTask *task, id responseObject) {
          NSLog(@"absoluteString: %@", task.originalRequest.URL.absoluteString);
          NSMutableArray *_tweets = [NSMutableArray array];
-         NSArray *tweets = [Tweet tweetsWithArray:responseObject];
-         NSLog(@"getTweetsWithCompletion: %@", responseObject);
+         NSArray *tweets = [Tweet tweetsWithArray:responseObject fromUserTimeline:NO];
+//         NSLog(@"getTweetsWithCompletion: %@", responseObject);
          for(Tweet *tweet in tweets){
-             Tweet *savedtweet = sharedInstance.mapOfTweets[tweet.tweetId];
-             if(savedtweet != nil){
-                 tweet.didIRetweet = savedtweet.didIRetweet;
-             }
              [_tweets addObject:tweet];
              [self.mapOfTweets setValue:tweet forKey:tweet.tweetId];
          }

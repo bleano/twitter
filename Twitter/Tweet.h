@@ -14,10 +14,12 @@
 @property (strong, nonatomic) NSString *handle;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *tweetId;
+@property (strong, nonatomic) NSString *retweetedInfoTweetId;
 @property (strong, nonatomic) NSURL *profileImageURL;
 @property (nonatomic, assign) BOOL retweeted;
-@property (nonatomic, assign) BOOL didIRetweet;
+@property (nonatomic, assign) BOOL alreadyRetweeted;
+@property (nonatomic, assign) BOOL retweetedByUser;
 @property (strong, nonatomic) NSString *retweetedByName;
-- (instancetype) initWithDictionary: (NSDictionary *) jsonDictionary;
-+ (NSArray*) tweetsWithArray:(NSArray *) array;
+- (instancetype) initWithDictionary: (NSDictionary *) jsonDictionary fromUserTimeline: (BOOL) fromUserTimeline;
++ (NSArray*) tweetsWithArray:(NSArray *) array fromUserTimeline: (BOOL) fromUserTimeline;
 @end

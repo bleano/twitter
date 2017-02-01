@@ -45,7 +45,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TweetTableViewCell *tweetTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
     TwitterClient *twitterClient = [TwitterClient sharedInstance];
-
     Tweet * tweet = [twitterClient.timelineTweets objectAtIndex:indexPath.row];
 //    NSLog(@"\n\n cellForRowAtIndexPath content:%@, handle:%@, name:%@, image:%@\n\n", tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString);
     tweetTableViewCell.tweet = tweet;
@@ -57,7 +56,13 @@
     [twitterClient getTweetsWithCompletion:^(NSArray *tweets, NSError *error) {
         if(tweets != nil){
             self.tweets = tweets;
-            [self performSelectorOnMainThread:@selector(reload) withObject:nil waitUntilDone: NO];
+            [twitterClient getMyTweetsWithCompletion:^(NSArray *tweets, NSError *error) {
+                if(tweets != nil){
+                    [self performSelectorOnMainThread:@selector(reload) withObject:nil waitUntilDone: NO];
+                }else{
+                    NSLog(@"getMyTweetsWithCompletiond NSError: %@", error.localizedDescription);
+                }
+            }];
         }else{
             NSLog(@"getTimelineTweets NSError: %@", error.localizedDescription);
         }

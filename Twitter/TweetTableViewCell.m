@@ -30,13 +30,14 @@
 @implementation TweetTableViewCell
 - (IBAction)onRetweetButton:(id)sender {
     TwitterClient *twitterClient = [TwitterClient sharedInstance];
-    Tweet *tweet = twitterClient.mapOfTweets[self.tweetId];
-//    if(tweet.didIRetweet) return;
+    Tweet *myTweet = twitterClient.mapOfMyTweets[self.tweetId];
+    if(myTweet.retweeted) return;
+    if(self.tweet.retweetedByUser) return;
     [twitterClient retweetThisId:self.tweetId retweetWithCompletion:^(id response, NSError *error) {
         if(response != nil){
             UIImage *image = [UIImage imageNamed: @"retweet-icon-green@3x.png"];
             [self.retweetButton setImage:image forState:UIControlStateNormal];
-            tweet.didIRetweet = YES;
+            self.tweet.retweetedByUser = YES;
         }else{
             NSLog(@"getTimelineTweets NSError: %@", error.localizedDescription);
         }
@@ -63,7 +64,9 @@
     self.contentLabel.text =  [NSString stringWithFormat:@"%@",self.tweet.content];
     self.timeStampLabel.text =  [NSString stringWithFormat:@"%@", self.tweet.relativeTime];
     [self.profileImageView setImageWithURL: self.tweet.profileImageURL];
-    if(self.tweet.didIRetweet){
+    TwitterClient *twitterClient = [TwitterClient sharedInstance];
+    Tweet *myTweet = twitterClient.mapOfMyTweets[self.tweetId];
+    if(myTweet.retweeted){
         UIImage *image = [UIImage imageNamed: @"retweet-icon-green@3x.png"];
         [self.retweetButton setImage:image forState:UIControlStateNormal];
     }

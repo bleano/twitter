@@ -9,13 +9,12 @@
 #import "Tweet.h"
 
 @implementation Tweet
-- (instancetype) initWithDictionary: (NSDictionary *) jsonDictionary{
+- (instancetype) initWithDictionary: (NSDictionary *) jsonDictionary fromUserTimeline: (BOOL) fromUserTimeline{
     self = [super init];
     if(self){
         self.retweeted = NO;
         self.tweetId = jsonDictionary[@"id_str"];
         self.content = jsonDictionary[@"text"];
-        self.didIRetweet = [jsonDictionary objectForKey:@"retweeted"];
         NSString *createdAt = jsonDictionary[@"created_at"];
         self.relativeTime = [self dateDiff:createdAt];
         NSDictionary  *userDictionary = jsonDictionary[@"user"];
@@ -24,6 +23,8 @@
             NSDictionary  *retweetedInfoUserDictionary = retweetedInfo[@"user"];
             self.handle =  [NSString stringWithFormat:@"@%@", retweetedInfoUserDictionary[@"screen_name"]];
             self.name = retweetedInfoUserDictionary[@"name"];
+            self.retweetedInfoTweetId = retweetedInfo[@"id_str"];
+            self.retweetedByUser = fromUserTimeline;
             self.retweetedByName = [NSString stringWithFormat:@"%@ Retweeted", userDictionary[@"name"]];
             self.retweeted = YES;
             self.profileImageURL = [NSURL URLWithString: retweetedInfoUserDictionary[@"profile_image_url_https"]];
@@ -36,14 +37,14 @@
     }
     return self;
 }
-+ (NSArray*) tweetsWithArray:(NSArray *) array{
++ (NSArray*) tweetsWithArray:(NSArray *) array fromUserTimeline: (BOOL) fromUserTimeline{
     NSMutableArray *tweets = [NSMutableArray array];
     for (NSDictionary *dictionary in array){
-        Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary];
+        Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary fromUserTimeline:fromUserTimeline];
         [tweets addObject:tweet];
     }
     for(Tweet *tweet in tweets){
-        NSLog(@"\n\n\tid:[%@], \n\tcontent:[%@], \n\thandle:[%@], \n\tname:[%@], \n\timage:[%@]\n\n", tweet.tweetId, tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString);
+        NSLog(@"\n\n\tid:[%@], \n\tcontent:[%@], \n\thandle:[%@], \n\tname:[%@], \n\timage:[%@], \n\tretweeted:[%@]\n\n", tweet.tweetId, tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString, tweet.retweeted ? @"true" : @"false");
     }
     return tweets;
 }
