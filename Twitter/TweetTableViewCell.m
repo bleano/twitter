@@ -38,9 +38,6 @@
             [self.retweetButton setImage:image forState:UIControlStateNormal];
             tweet.didIRetweet = YES;
         }else{
-            UIImage *image = [UIImage imageNamed: @"retweet-icon-green@3x.png"];
-            [self.retweetButton setImage:image forState:UIControlStateNormal];
-            tweet.didIRetweet = YES;
             NSLog(@"getTimelineTweets NSError: %@", error.localizedDescription);
         }
     }];
