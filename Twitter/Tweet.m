@@ -43,9 +43,9 @@
         Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary fromUserTimeline:fromUserTimeline];
         [tweets addObject:tweet];
     }
-    for(Tweet *tweet in tweets){
-        NSLog(@"\n\n\tid:[%@], \n\tcontent:[%@], \n\thandle:[%@], \n\tname:[%@], \n\timage:[%@], \n\tretweeted:[%@]\n\n", tweet.tweetId, tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString, tweet.retweeted ? @"true" : @"false");
-    }
+//    for(Tweet *tweet in tweets){
+//        NSLog(@"\n\n\tid:[%@], \n\tcontent:[%@], \n\thandle:[%@], \n\tname:[%@], \n\timage:[%@], \n\tretweeted:[%@], \n\tretweetedByUser:[%@]\n\n", tweet.tweetId, tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString, tweet.retweeted ? @"true" : @"false", tweet.retweetedByUser ? @"true" : @"false");
+//    }
     return tweets;
 }
 

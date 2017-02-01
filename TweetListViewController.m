@@ -26,7 +26,7 @@
     [self.tweetTableView addSubview:uiRefreshControl];
     [self.refreshControlForTableView addTarget:self action:@selector(getTimelineTweets) forControlEvents:UIControlEventValueChanged];
     self.tweetTableView.dataSource = self;
-    self.tweetTableView.estimatedRowHeight = 200;
+    self.tweetTableView.estimatedRowHeight = 500;
     self.tweetTableView.rowHeight = UITableViewAutomaticDimension;
     UINib *uiNib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
     [self.tweetTableView registerNib:uiNib forCellReuseIdentifier:@"TweetTableViewCell"];
@@ -48,6 +48,7 @@
     Tweet * tweet = [twitterClient.timelineTweets objectAtIndex:indexPath.row];
 //    NSLog(@"\n\n cellForRowAtIndexPath content:%@, handle:%@, name:%@, image:%@\n\n", tweet.content, tweet.handle, tweet.name, tweet.profileImageURL.absoluteString);
     tweetTableViewCell.tweet = tweet;
+    [tweetTableViewCell reload];
     return tweetTableViewCell;
 }
 

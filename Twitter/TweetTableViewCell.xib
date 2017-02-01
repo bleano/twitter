@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="711" height="494"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="711" height="494"/>
+                <rect key="frame" x="0.0" y="0.0" width="711" height="493.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghm-tq-Vde" userLabel="RetweetContainer">
@@ -39,10 +39,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODt-7I-HRT" userLabel="ImageContainer">
-                        <rect key="frame" x="8" y="52.000000000000028" width="68" height="441.66666666666674"/>
+                        <rect key="frame" x="8" y="52" width="68" height="442"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cb4-gG-3zT">
-                                <rect key="frame" x="12" y="16" width="48" height="48"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cb4-gG-3zT">
+                                <rect key="frame" x="12" y="16" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="kcI-sz-Uhh"/>
                                     <constraint firstAttribute="height" constant="44" id="xcu-bk-0l2"/>
@@ -56,10 +56,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTE-WU-vSu" userLabel="TweetContainer">
-                        <rect key="frame" x="76" y="44" width="635" height="409.66666666666669"/>
+                        <rect key="frame" x="76" y="44" width="635" height="410"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7G-2J-mqE">
-                                <rect key="frame" x="18" y="8" width="47.666666666666657" height="21"/>
+                                <rect key="frame" x="18" y="8" width="48" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9x0-QC-bnH"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" id="Lh9-jc-6dF"/>
@@ -69,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCx-xG-mA7" userLabel="Timestamp">
-                                <rect key="frame" x="533.33333333333348" y="8" width="85.666666666666629" height="21"/>
+                                <rect key="frame" x="533" y="8" width="86" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" id="6JU-D1-aa1"/>
                                 </constraints>
@@ -78,13 +78,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TweetContent" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9JG-hk-mED" userLabel="TweetContent">
-                                <rect key="frame" x="18" y="29" width="609" height="380.66666666666669"/>
+                                <rect key="frame" x="18" y="29" width="609" height="381"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Handle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5d-D3-gs5">
-                                <rect key="frame" x="73.666666666666657" y="8" width="54.333333333333343" height="21"/>
+                                <rect key="frame" x="74" y="8" width="55" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" id="eb0-H7-v2u"/>
                                 </constraints>
@@ -110,21 +110,21 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8h6-kl-fGn" userLabel="TweetActionsContainer">
-                        <rect key="frame" x="76" y="453.66666666666669" width="635" height="40"/>
+                        <rect key="frame" x="76" y="454" width="635" height="40"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyV-7E-Dfy" userLabel="Reply">
-                                <rect key="frame" x="0.0" y="0.0" width="211.66666666666669" height="40"/>
+                                <rect key="frame" x="0.0" y="0.0" width="212" height="40"/>
                                 <state key="normal" image="reply-icon.png"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNs-Xd-1ve">
-                                <rect key="frame" x="211.66666666666669" y="0.0" width="211.66666666666663" height="40"/>
+                                <rect key="frame" x="212" y="0.0" width="211" height="40"/>
                                 <state key="normal" image="retweet-icon.png"/>
                                 <connections>
                                     <action selector="onRetweetButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jd4-1a-eDs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Uw-Sh-RJu">
-                                <rect key="frame" x="423.33333333333326" y="0.0" width="211.66666666666674" height="40"/>
+                                <rect key="frame" x="423" y="0.0" width="212" height="40"/>
                                 <state key="normal" image="favor-icon.png"/>
                             </button>
                         </subviews>

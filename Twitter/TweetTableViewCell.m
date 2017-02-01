@@ -48,8 +48,16 @@
     [super awakeFromNib];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+
+- (void)setTweet:(Tweet *)tweet
+{
+    _tweet = tweet;
+    [self reload];
+}
+
+
+- (void)reload
+{
     if(self.tweet.content == nil) return;
     UIImage *image = [UIImage imageNamed: @"retweet-icon@3x.png"];
     [self.retweetButton setImage:image forState:UIControlStateNormal];
@@ -66,11 +74,18 @@
     [self.profileImageView setImageWithURL: self.tweet.profileImageURL];
     TwitterClient *twitterClient = [TwitterClient sharedInstance];
     Tweet *myTweet = twitterClient.mapOfMyTweets[self.tweetId];
-    if(myTweet.retweeted){
+    if(myTweet != nil && myTweet.retweetedByUser){
         UIImage *image = [UIImage imageNamed: @"retweet-icon-green@3x.png"];
         [self.retweetButton setImage:image forState:UIControlStateNormal];
     }
-//    if(self.tweet != nil) NSLog(@"\nsetSelected name:%@, handle:%@, content:%@\n\n", self.nameLabel.text, self.handleLabel.text, self.contentLabel.text);
+    [self needsUpdateConstraints];
+    //    if(self.tweet != nil) NSLog(@"\nsetSelected name:%@, handle:%@, content:%@\n\n", self.nameLabel.text, self.handleLabel.text, self.contentLabel.text);
+}
+
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
 }
 
 @end
