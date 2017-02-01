@@ -14,6 +14,12 @@
 		ED3625161E412AD900CF85CA /* favor-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3625151E412AD900CF85CA /* favor-icon@3x.png */; };
 		ED3625181E412B8400CF85CA /* reply-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3625171E412B8400CF85CA /* reply-icon@3x.png */; };
 		ED36251A1E413A1E00CF85CA /* retweet-icon-green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3625191E413A1E00CF85CA /* retweet-icon-green@3x.png */; };
+		EDB1083A1E4286CE006D8091 /* edit-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB108391E4286CE006D8091 /* edit-icon@3x.png */; };
+		EDB1083C1E428847006D8091 /* edit-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB1083B1E428847006D8091 /* edit-icon.png */; };
+		EDB1083E1E428851006D8091 /* profile-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB1083D1E428851006D8091 /* profile-icon@3x.png */; };
+		EDB108401E42885A006D8091 /* twiiter-logo-29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB1083F1E42885A006D8091 /* twiiter-logo-29@3x.png */; };
+		EDB108451E428B60006D8091 /* TweetComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB108431E428B60006D8091 /* TweetComposeViewController.m */; };
+		EDB108461E428B60006D8091 /* TweetComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB108441E428B60006D8091 /* TweetComposeViewController.xib */; };
 		EDE6617A1E3FB8EB007A587C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE661791E3FB8EB007A587C /* main.m */; };
 		EDE6617D1E3FB8EB007A587C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE6617C1E3FB8EB007A587C /* AppDelegate.m */; };
 		EDE661851E3FB8EB007A587C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE661841E3FB8EB007A587C /* Assets.xcassets */; };
@@ -39,6 +45,13 @@
 		ED3625151E412AD900CF85CA /* favor-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favor-icon@3x.png"; sourceTree = "<group>"; };
 		ED3625171E412B8400CF85CA /* reply-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reply-icon@3x.png"; sourceTree = "<group>"; };
 		ED3625191E413A1E00CF85CA /* retweet-icon-green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-icon-green@3x.png"; sourceTree = "<group>"; };
+		EDB108391E4286CE006D8091 /* edit-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-icon@3x.png"; sourceTree = "<group>"; };
+		EDB1083B1E428847006D8091 /* edit-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-icon.png"; sourceTree = "<group>"; };
+		EDB1083D1E428851006D8091 /* profile-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-icon@3x.png"; sourceTree = "<group>"; };
+		EDB1083F1E42885A006D8091 /* twiiter-logo-29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twiiter-logo-29@3x.png"; sourceTree = "<group>"; };
+		EDB108421E428B60006D8091 /* TweetComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetComposeViewController.h; sourceTree = "<group>"; };
+		EDB108431E428B60006D8091 /* TweetComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetComposeViewController.m; sourceTree = "<group>"; };
+		EDB108441E428B60006D8091 /* TweetComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetComposeViewController.xib; sourceTree = "<group>"; };
 		EDE661751E3FB8EB007A587C /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE661791E3FB8EB007A587C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EDE6617B1E3FB8EB007A587C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -95,6 +108,10 @@
 		ED36250E1E4118D500CF85CA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EDB1083F1E42885A006D8091 /* twiiter-logo-29@3x.png */,
+				EDB1083D1E428851006D8091 /* profile-icon@3x.png */,
+				EDB1083B1E428847006D8091 /* edit-icon.png */,
+				EDB108391E4286CE006D8091 /* edit-icon@3x.png */,
 				ED3625191E413A1E00CF85CA /* retweet-icon-green@3x.png */,
 				ED3625171E412B8400CF85CA /* reply-icon@3x.png */,
 				ED3625151E412AD900CF85CA /* favor-icon@3x.png */,
@@ -103,6 +120,16 @@
 				ED36250F1E41190100CF85CA /* 1485911442_Retweet.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		EDB108411E428B26006D8091 /* TweetCompose */ = {
+			isa = PBXGroup;
+			children = (
+				EDB108421E428B60006D8091 /* TweetComposeViewController.h */,
+				EDB108431E428B60006D8091 /* TweetComposeViewController.m */,
+				EDB108441E428B60006D8091 /* TweetComposeViewController.xib */,
+			);
+			name = TweetCompose;
 			sourceTree = "<group>";
 		};
 		EDE6616C1E3FB8EB007A587C = {
@@ -163,6 +190,7 @@
 		EDE661901E3FB95C007A587C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EDB108411E428B26006D8091 /* TweetCompose */,
 				EDE661AA1E3FF52F007A587C /* Login */,
 				EDE661A91E3FF4F1007A587C /* TweetList */,
 			);
@@ -271,7 +299,9 @@
 			files = (
 				EDE661881E3FB8EB007A587C /* LaunchScreen.storyboard in Resources */,
 				ED3625161E412AD900CF85CA /* favor-icon@3x.png in Resources */,
+				EDB1083C1E428847006D8091 /* edit-icon.png in Resources */,
 				ED3625121E41299700CF85CA /* retweet-icon@3x.png in Resources */,
+				EDB1083E1E428851006D8091 /* profile-icon@3x.png in Resources */,
 				EDE661851E3FB8EB007A587C /* Assets.xcassets in Resources */,
 				EDE6619A1E3FB9C7007A587C /* TweetListViewController.xib in Resources */,
 				ED3625141E412A7900CF85CA /* retweet-icon@3x-50.png in Resources */,
@@ -279,6 +309,9 @@
 				ED36251A1E413A1E00CF85CA /* retweet-icon-green@3x.png in Resources */,
 				ED3625181E412B8400CF85CA /* reply-icon@3x.png in Resources */,
 				EDE6619F1E3FC828007A587C /* TweetTableViewCell.xib in Resources */,
+				EDB1083A1E4286CE006D8091 /* edit-icon@3x.png in Resources */,
+				EDB108461E428B60006D8091 /* TweetComposeViewController.xib in Resources */,
+				EDB108401E42885A006D8091 /* twiiter-logo-29@3x.png in Resources */,
 				ED3625101E41190100CF85CA /* 1485911442_Retweet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +375,7 @@
 				EDE661AE1E3FF56E007A587C /* LoginController.m in Sources */,
 				EDE6617D1E3FB8EB007A587C /* AppDelegate.m in Sources */,
 				EDE661A51E3FDEB8007A587C /* User.m in Sources */,
+				EDB108451E428B60006D8091 /* TweetComposeViewController.m in Sources */,
 				EDE661A81E3FDF09007A587C /* Tweet.m in Sources */,
 				EDE661A21E3FDE3F007A587C /* TwitterClient.m in Sources */,
 				EDE6617A1E3FB8EB007A587C /* main.m in Sources */,

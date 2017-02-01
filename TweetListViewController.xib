@@ -22,18 +22,50 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kph-R6-SWS">
-                    <rect key="frame" x="16" y="24" width="288" height="432"/>
+                    <rect key="frame" x="16" y="82" width="288" height="374"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WE-z2-OwC">
+                    <rect key="frame" x="37" y="54" width="267" height="20"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="twiiter-logo-29.png" translatesAutoresizingMaskIntoConstraints="NO" id="1GI-by-tOk">
+                            <rect key="frame" x="108" y="-9" width="65" height="52"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbo-rF-0Hb">
+                            <rect key="frame" x="-6" y="-11" width="44" height="54"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button" image="profile-icon.png"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ2-Hp-huJ">
+                            <rect key="frame" x="235" y="-6" width="53" height="43"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button" image="edit-icon.png"/>
+                            <connections>
+                                <action selector="onComposeButton:" destination="-1" eventType="touchUpInside" id="kPk-tG-bfD"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="7WE-z2-OwC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="54" id="1H3-1p-nfE"/>
                 <constraint firstItem="Kph-R6-SWS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7xz-Sy-44L"/>
                 <constraint firstItem="Kph-R6-SWS" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="C9O-gG-zMj"/>
-                <constraint firstItem="Kph-R6-SWS" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="QBO-xr-loO"/>
-                <constraint firstItem="Kph-R6-SWS" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.9" id="QJH-X2-cse"/>
+                <constraint firstItem="7WE-z2-OwC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="37" id="EfN-bD-NOG"/>
+                <constraint firstItem="Kph-R6-SWS" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="29" id="QBO-xr-loO"/>
+                <constraint firstItem="Kph-R6-SWS" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.9" constant="-58" id="QJH-X2-cse"/>
+                <constraint firstAttribute="trailing" secondItem="7WE-z2-OwC" secondAttribute="trailing" constant="16" id="Tso-E2-etW"/>
+                <constraint firstItem="Kph-R6-SWS" firstAttribute="top" secondItem="7WE-z2-OwC" secondAttribute="bottom" constant="8" symbolic="YES" id="cMh-87-qZT"/>
             </constraints>
-            <point key="canvasLocation" x="24" y="50"/>
+            <point key="canvasLocation" x="-6" y="-5"/>
         </view>
     </objects>
+    <resources>
+        <image name="edit-icon.png" width="30" height="27"/>
+        <image name="profile-icon.png" width="16" height="16"/>
+        <image name="twiiter-logo-29.png" width="16" height="16"/>
+    </resources>
 </document>
