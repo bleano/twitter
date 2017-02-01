@@ -22,24 +22,24 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghm-tq-Vde" userLabel="RetweetContainer">
                         <rect key="frame" x="0.0" y="28" width="711" height="24"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retweet-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Co1-vm-bcJ" userLabel="RetweetIcon">
+                                <rect key="frame" x="70" y="-3" width="26" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1d-3Y-znI" userLabel="RetweetedBy">
-                                <rect key="frame" x="129" y="0.0" width="385" height="21"/>
+                                <rect key="frame" x="104" y="-1" width="385" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retweet-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Co1-vm-bcJ" userLabel="RetweetIcon">
-                                <rect key="frame" x="95" y="0.0" width="26" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="DfU-1a-wQe"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODt-7I-HRT" userLabel="ImageContainer">
-                        <rect key="frame" x="8" y="52" width="68" height="442"/>
+                        <rect key="frame" x="8" y="52" width="44" height="442"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cb4-gG-3zT">
                                 <rect key="frame" x="0.0" y="8" width="44" height="44"/>
@@ -51,12 +51,12 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="cb4-gG-3zT" firstAttribute="top" secondItem="ODt-7I-HRT" secondAttribute="top" constant="8" id="3uj-qu-MAO"/>
-                            <constraint firstAttribute="width" constant="68" id="SXZ-RH-yHV"/>
-                            <constraint firstItem="cb4-gG-3zT" firstAttribute="centerX" secondItem="ODt-7I-HRT" secondAttribute="centerX" constant="-12" id="zV5-tN-N9g"/>
+                            <constraint firstAttribute="width" constant="44" id="SXZ-RH-yHV"/>
+                            <constraint firstItem="cb4-gG-3zT" firstAttribute="centerX" secondItem="ODt-7I-HRT" secondAttribute="centerX" id="zV5-tN-N9g"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTE-WU-vSu" userLabel="TweetContainer">
-                        <rect key="frame" x="76" y="44" width="635" height="410"/>
+                        <rect key="frame" x="64" y="44" width="647" height="410.66666666666669"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7G-2J-mqE">
                                 <rect key="frame" x="18" y="8" width="47.666666666666657" height="21"/>
@@ -78,7 +78,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TweetContent" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9JG-hk-mED" userLabel="TweetContent">
-                                <rect key="frame" x="18" y="29" width="609" height="381"/>
+                                <rect key="frame" x="18" y="29" width="609" height="381.66666666666669"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -99,9 +99,9 @@
                             <constraint firstItem="C5d-D3-gs5" firstAttribute="leading" secondItem="k7G-2J-mqE" secondAttribute="trailing" constant="8" id="5Wp-Im-LsJ"/>
                             <constraint firstItem="C5d-D3-gs5" firstAttribute="height" secondItem="k7G-2J-mqE" secondAttribute="height" id="9LO-sH-Oof"/>
                             <constraint firstItem="eCx-xG-mA7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="C5d-D3-gs5" secondAttribute="trailing" constant="8" id="BQY-6g-HDf"/>
-                            <constraint firstAttribute="trailing" secondItem="eCx-xG-mA7" secondAttribute="trailing" constant="16" id="EdN-eo-A58"/>
+                            <constraint firstAttribute="trailing" secondItem="eCx-xG-mA7" secondAttribute="trailing" constant="27.999999999999886" id="EdN-eo-A58"/>
                             <constraint firstItem="C5d-D3-gs5" firstAttribute="centerY" secondItem="k7G-2J-mqE" secondAttribute="centerY" id="Gto-QK-B8H"/>
-                            <constraint firstAttribute="trailing" secondItem="9JG-hk-mED" secondAttribute="trailing" constant="8" id="Rqs-6Q-uvR"/>
+                            <constraint firstAttribute="trailing" secondItem="9JG-hk-mED" secondAttribute="trailing" constant="20" id="Rqs-6Q-uvR"/>
                             <constraint firstItem="eCx-xG-mA7" firstAttribute="height" secondItem="C5d-D3-gs5" secondAttribute="height" id="XED-Nw-S54"/>
                             <constraint firstItem="k7G-2J-mqE" firstAttribute="top" secondItem="PTE-WU-vSu" secondAttribute="top" constant="8" id="dYa-vH-yj6"/>
                             <constraint firstItem="k7G-2J-mqE" firstAttribute="leading" secondItem="PTE-WU-vSu" secondAttribute="leading" constant="18" id="f7d-HC-aU7"/>
@@ -110,7 +110,7 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8h6-kl-fGn" userLabel="TweetActionsContainer">
-                        <rect key="frame" x="76" y="454" width="635" height="40"/>
+                        <rect key="frame" x="60" y="453" width="635" height="40"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyV-7E-Dfy" userLabel="Reply">
                                 <rect key="frame" x="0.0" y="0.0" width="211.66666666666669" height="40"/>
@@ -134,19 +134,19 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="8h6-kl-fGn" firstAttribute="leading" secondItem="ODt-7I-HRT" secondAttribute="trailing" id="44H-7j-4Mm"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="8h6-kl-fGn" secondAttribute="bottom" constant="-9" id="8m2-du-aaY"/>
+                    <constraint firstItem="8h6-kl-fGn" firstAttribute="leading" secondItem="ODt-7I-HRT" secondAttribute="trailing" constant="8" id="44H-7j-4Mm"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8h6-kl-fGn" secondAttribute="bottom" constant="-8" id="8m2-du-aaY"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PTE-WU-vSu" secondAttribute="trailing" constant="-8" id="FAA-Tc-aHo"/>
                     <constraint firstItem="ODt-7I-HRT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Ib8-52-Tq6"/>
                     <constraint firstItem="ghm-tq-Vde" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="M2J-1v-D9j"/>
                     <constraint firstItem="ODt-7I-HRT" firstAttribute="top" secondItem="ghm-tq-Vde" secondAttribute="bottom" id="XQl-Cg-5hI"/>
                     <constraint firstItem="PTE-WU-vSu" firstAttribute="top" secondItem="ghm-tq-Vde" secondAttribute="bottom" constant="-8" id="aAe-27-bZa"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ODt-7I-HRT" secondAttribute="bottom" constant="-9" id="azn-cI-Xe6"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="8h6-kl-fGn" secondAttribute="trailing" constant="-8" id="bOJ-Ne-RZR"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8h6-kl-fGn" secondAttribute="trailing" constant="8" id="bOJ-Ne-RZR"/>
                     <constraint firstItem="ghm-tq-Vde" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="h2u-fS-Nr3"/>
-                    <constraint firstItem="PTE-WU-vSu" firstAttribute="leading" secondItem="ODt-7I-HRT" secondAttribute="trailing" id="qMx-Fq-5wJ"/>
+                    <constraint firstItem="PTE-WU-vSu" firstAttribute="leading" secondItem="ODt-7I-HRT" secondAttribute="trailing" constant="12" id="qMx-Fq-5wJ"/>
                     <constraint firstItem="ghm-tq-Vde" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="xEo-Pf-5Id"/>
-                    <constraint firstItem="8h6-kl-fGn" firstAttribute="top" secondItem="PTE-WU-vSu" secondAttribute="bottom" id="yKa-Ct-PlH"/>
+                    <constraint firstItem="8h6-kl-fGn" firstAttribute="top" secondItem="PTE-WU-vSu" secondAttribute="bottom" constant="-1.6666666666666856" id="yKa-Ct-PlH"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
