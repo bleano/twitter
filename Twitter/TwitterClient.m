@@ -86,15 +86,16 @@ static TwitterClient *sharedInstance = nil;
          self.retweetCompletion(responseObject, nil);
      }
      failure:^(NSURLSessionTask *task, NSError *error) {
-         NSLog(@"retweetWithCompletion NSError: %@", error.debugDescription);
+         NSLog(@"retweetWithCompletion NSError: %@ on:%@", error.debugDescription, url);
          self.retweetCompletion(nil, error);
      }];
     
 }
 - (void) getMyTweetsWithCompletion:( void (^)(NSArray *tweets, NSError *error))completion{
     self.getMyTweetsCompletion = completion;
+    NSString *url = @"1.1/statuses/user_timeline.json?count=50";
     [sharedInstance
-     GET:@"1.1/statuses/user_timeline.json?count=50"
+     GET:url
      parameters:nil
      progress:nil
      success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -113,15 +114,16 @@ static TwitterClient *sharedInstance = nil;
          self.getMyTweetsCompletion(self.userTweets, nil);
      }
      failure:^(NSURLSessionTask *task, NSError *error) {
-         NSLog(@"getTweetsWithCogetMyTweetsWithCompletionmpletion NSError: %@", error.localizedDescription);
+         NSLog(@"getMyTweetsWithCompletion NSError: %@ on:%@", error.localizedDescription, url);
          self.getTweetsCompletion(nil, error);
      }];
 }
 
 - (void) getTweetsWithCompletion:( void (^)(NSArray *tweets, NSError *error))completion{
     self.getTweetsCompletion = completion;
+    NSString *url = @"1.1/statuses/home_timeline.json?count=50";
     [sharedInstance
-     GET:@"1.1/statuses/home_timeline.json?count=50"
+     GET: url
      parameters:nil
      progress:nil
      success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -138,7 +140,7 @@ static TwitterClient *sharedInstance = nil;
          self.getTweetsCompletion(self.timelineTweets, nil);
      }
      failure:^(NSURLSessionTask *task, NSError *error) {
-         NSLog(@"getTweetsWithCompletion NSError: %@", error.localizedDescription);
+         NSLog(@"getTweetsWithCompletion NSError: %@ on:%@", error.localizedDescription, url);
          self.getTweetsCompletion(nil, error);
      }];
 }

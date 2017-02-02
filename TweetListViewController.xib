@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kph-R6-SWS">
-                    <rect key="frame" x="16" y="40" width="288" height="416"/>
+                    <rect key="frame" x="16" y="20" width="288" height="436"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
@@ -30,7 +30,7 @@
             <constraints>
                 <constraint firstItem="Kph-R6-SWS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7xz-Sy-44L"/>
                 <constraint firstItem="Kph-R6-SWS" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="C9O-gG-zMj"/>
-                <constraint firstItem="Kph-R6-SWS" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="29" id="QBO-xr-loO"/>
+                <constraint firstItem="Kph-R6-SWS" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="QBO-xr-loO"/>
                 <constraint firstItem="Kph-R6-SWS" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.9" constant="-58" id="QJH-X2-cse"/>
             </constraints>
             <point key="canvasLocation" x="-6" y="-5"/>

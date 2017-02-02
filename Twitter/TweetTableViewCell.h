@@ -12,7 +12,7 @@
 
 @interface TweetTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *retweetContainerHeightConstraint;
-@property (weak, nonatomic) Tweet *tweet;
+@property (strong, nonatomic) Tweet *tweet;
 
 - (void)reload;
 

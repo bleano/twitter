@@ -18,11 +18,15 @@
 @end
 
 @implementation TweetListViewController
-- (IBAction)onComposeButton:(id)sender {
+
+- (void)foo {
+    NSLog(@"FOO");
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIBarButtonItem *composeButton = [[UIBarButtonItem alloc]initWithTitle:@"COMPOSE" style:UIBarButtonItemStylePlain target:self action: @selector(foo)];
+    self.navigationItem.rightBarButtonItem = composeButton;
     UIRefreshControl *uiRefreshControl = [[UIRefreshControl alloc]init];
     self.refreshControlForTableView = uiRefreshControl;
     [self.tweetTableView addSubview:uiRefreshControl];

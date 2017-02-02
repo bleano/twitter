@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface User : NSObject
-@property (weak, nonatomic) NSString *twitterName;
-@property (weak, nonatomic) NSString *twitterScreenName;
-@property (weak, nonatomic) NSString *twitterDescription;
-@property (weak, nonatomic) NSURL *twitterProfileImageURLHTTPS;
+@property (strong, nonatomic) NSString *twitterName;
+@property (strong, nonatomic) NSString *twitterScreenName;
+@property (strong, nonatomic) NSString *twitterDescription;
+@property (strong, nonatomic) NSURL *twitterProfileImageURLHTTPS;
 
 - (instancetype) initWithDictionary: (NSDictionary *) jsonDictionary;
 

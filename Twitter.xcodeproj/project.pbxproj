@@ -20,6 +20,8 @@
 		EDB108401E42885A006D8091 /* twiiter-logo-29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB1083F1E42885A006D8091 /* twiiter-logo-29@3x.png */; };
 		EDB108451E428B60006D8091 /* TweetComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB108431E428B60006D8091 /* TweetComposeViewController.m */; };
 		EDB108461E428B60006D8091 /* TweetComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB108441E428B60006D8091 /* TweetComposeViewController.xib */; };
+		EDB1084A1E4292A5006D8091 /* TweetListNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB108481E4292A5006D8091 /* TweetListNavigationController.m */; };
+		EDB1084B1E4292A5006D8091 /* TweetListNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB108491E4292A5006D8091 /* TweetListNavigationController.xib */; };
 		EDE6617A1E3FB8EB007A587C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE661791E3FB8EB007A587C /* main.m */; };
 		EDE6617D1E3FB8EB007A587C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE6617C1E3FB8EB007A587C /* AppDelegate.m */; };
 		EDE661851E3FB8EB007A587C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE661841E3FB8EB007A587C /* Assets.xcassets */; };
@@ -52,6 +54,9 @@
 		EDB108421E428B60006D8091 /* TweetComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetComposeViewController.h; sourceTree = "<group>"; };
 		EDB108431E428B60006D8091 /* TweetComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetComposeViewController.m; sourceTree = "<group>"; };
 		EDB108441E428B60006D8091 /* TweetComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetComposeViewController.xib; sourceTree = "<group>"; };
+		EDB108471E4292A5006D8091 /* TweetListNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetListNavigationController.h; sourceTree = "<group>"; };
+		EDB108481E4292A5006D8091 /* TweetListNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetListNavigationController.m; sourceTree = "<group>"; };
+		EDB108491E4292A5006D8091 /* TweetListNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetListNavigationController.xib; sourceTree = "<group>"; };
 		EDE661751E3FB8EB007A587C /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE661791E3FB8EB007A587C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EDE6617B1E3FB8EB007A587C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -222,6 +227,9 @@
 				EDE661971E3FB9C7007A587C /* TweetListViewController.m */,
 				EDE661981E3FB9C7007A587C /* TweetListViewController.xib */,
 				EDE661961E3FB9C7007A587C /* TweetListViewController.h */,
+				EDB108471E4292A5006D8091 /* TweetListNavigationController.h */,
+				EDB108481E4292A5006D8091 /* TweetListNavigationController.m */,
+				EDB108491E4292A5006D8091 /* TweetListNavigationController.xib */,
 			);
 			name = TweetList;
 			sourceTree = "<group>";
@@ -310,6 +318,7 @@
 				ED3625181E412B8400CF85CA /* reply-icon@3x.png in Resources */,
 				EDE6619F1E3FC828007A587C /* TweetTableViewCell.xib in Resources */,
 				EDB1083A1E4286CE006D8091 /* edit-icon@3x.png in Resources */,
+				EDB1084B1E4292A5006D8091 /* TweetListNavigationController.xib in Resources */,
 				EDB108461E428B60006D8091 /* TweetComposeViewController.xib in Resources */,
 				EDB108401E42885A006D8091 /* twiiter-logo-29@3x.png in Resources */,
 				ED3625101E41190100CF85CA /* 1485911442_Retweet.png in Resources */,
@@ -372,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDE661991E3FB9C7007A587C /* TweetListViewController.m in Sources */,
+				EDB1084A1E4292A5006D8091 /* TweetListNavigationController.m in Sources */,
 				EDE661AE1E3FF56E007A587C /* LoginController.m in Sources */,
 				EDE6617D1E3FB8EB007A587C /* AppDelegate.m in Sources */,
 				EDE661A51E3FDEB8007A587C /* User.m in Sources */,

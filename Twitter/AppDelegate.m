@@ -9,10 +9,11 @@
 #import "AppDelegate.h"
 #import <BDBOAuth1Manager/BDBOAuth1SessionManager.h>
 #import "TweetListViewController.h"
+#import "TweetListNavigationController.h"
 #import "LoginController.h"
 #import "TwitterClient.h"
 @interface AppDelegate ()
-
+@property (strong, nonatomic) UINavigationController *tweetListNavController;
 @end
 
 @implementation AppDelegate
@@ -20,12 +21,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     TwitterClient *twitterClient = [TwitterClient sharedInstance];
-    if(twitterClient.isAuthorized){
+    if(twitterClient.isAuthorized){        
         TweetListViewController *tweetListViewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+        
+        self.tweetListNavController = [[TweetListNavigationController alloc] initWithRootViewController:tweetListViewController];
         CGRect frame = [UIScreen mainScreen].bounds;
         self.window = [[UIWindow alloc] initWithFrame:frame];
-        self.window.rootViewController = tweetListViewController;
+        self.window.rootViewController = self.tweetListNavController;
+        self.window.backgroundColor = [UIColor whiteColor];
         [self.window makeKeyAndVisible];
+        return YES;
+         
     }else{
         LoginController *loginContoller = [[LoginController alloc] initWithNibName:@"LoginController" bundle:nil];
         CGRect frame = [UIScreen mainScreen].bounds;
@@ -34,6 +40,9 @@
         [self.window makeKeyAndVisible];
     }
     return YES;
+}
+
+- (void)foo{
 }
 
 
